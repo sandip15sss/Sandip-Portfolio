@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.from(".footer-item", { opacity: 0, y: 80, duration: 1, stagger: 0.3, ease: "power3.out", scrollTrigger: { trigger: "#footer", start: "top 80%" } });
 
     // Smooth Scroll Links
-    const navLinks = document.querySelectorAll('nav a, #mobile-menu a');
+    const navLinks = document.querySelectorAll('nav a, #mobile-menu a, #footer a');
     navLinks.forEach(link => { 
         link.addEventListener('click', (e) => { 
             e.preventDefault(); 
