@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const island = document.getElementById('island');
     let lastScroll = window.pageYOffset || 0; 
-    
     let isAnimatingLoad = true; 
 
     // Navbar Scroll Logic
@@ -47,10 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
             island.style.transform = "translate(-50%, -150%)"; 
         }
         
-        gsap.from(".hero-anim", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.5 });
+        gsap.fromTo(".hero-anim", 
+            { y: 40, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.5, clearProps: "all" }
+        );
     });
 
-    // --- Hero Canvas Image Sequence ---
+    // ==========================================
+    // 🚀 SMART IMAGE PRELOADER (OPTIMIZED)
+    // ==========================================
     const canvas = document.getElementById("hero-canvas");
     const context = canvas.getContext("2d");
 
@@ -58,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.height = 1080;
 
     const frameCount = 182; 
-
     const currentFrame = index => {
         let num = (index + 1).toString().padStart(3, '0'); 
         return `./Assets/heroimg/ezgif-frame-${num}.jpg`;
@@ -67,13 +70,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = [];
     const heroVideoSeq = { frame: 0 };
 
-    for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i);
-        images.push(img);
+    // १. सर्वात आधी फक्त पहिली (Index 0) इमेज लोड करा
+    const firstImage = new Image();
+    firstImage.src = currentFrame(0);
+    images[0] = firstImage;
+
+    firstImage.onload = () => {
+        // पहिली इमेज लोड झाली की ती कॅनव्हासवर दाखवा (पेज लगेच दिसेल)
+        render(); 
+        
+        // २. आणि मग उरलेल्या १८१ इमेजेस 'Background' मध्ये लोड करायला घ्या
+        loadRestOfImages();
+    };
+
+    function loadRestOfImages() {
+        for (let i = 1; i < frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            images[i] = img;
+        }
     }
 
-    images[0].onload = render;
+    function render() {
+        const img = images[heroVideoSeq.frame];
+        // ३. जर इमेज पूर्ण डाउनलोड (complete) झाली असेल तरच ती कॅनव्हासवर काढा (याने एरर येणार नाही)
+        if (img && img.complete) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+        }
+    }
 
     // --- Cinematic Breathing Effect ---
     gsap.to(canvas, {
@@ -83,11 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
         yoyo: true, 
         ease: "sine.inOut" 
     });
-
-    function render() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(images[heroVideoSeq.frame], 0, 0, canvas.width, canvas.height);
-    }
 
     // Video Scroll Animation
     gsap.to(heroVideoSeq, {
@@ -102,6 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         onUpdate: render 
     });
+    // ==========================================
+
 
     // Project Cards Scroll
     function getScrollAmount() { 
@@ -115,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Footer Animation
     gsap.from(".footer-item", { opacity: 0, y: 80, duration: 1, stagger: 0.3, ease: "power3.out", scrollTrigger: { trigger: "#footer", start: "top 80%" } });
 
-    // ✅ BUG FIX: Smooth Scroll Links for About
+    // Smooth Scroll Links
     const navLinks = document.querySelectorAll('nav a, #mobile-menu a, #footer a');
     navLinks.forEach(link => { 
         link.addEventListener('click', (e) => { 
@@ -127,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if(tId === '#hero') {
                 window.scrollTo({ top: 0, behavior: 'smooth' }); 
             } else { 
-                // आता कुठल्याही लिंकवर क्लिक केलं तरी ते बरोबर त्या सेक्शनवर जाईल
                 document.querySelector(tId).scrollIntoView({ behavior: 'smooth' }); 
             } 
         }); 
