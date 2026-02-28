@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const island = document.getElementById('island');
     let lastScroll = window.pageYOffset || 0; 
     
-    // ✅ BUG FIX: Animation chalu asel tar scroll logic la block kara
     let isAnimatingLoad = true; 
 
     // Navbar Scroll Logic
     window.addEventListener('scroll', () => {
-        // Jar initial animation chalu asel, tar scroll event ignore kara!
         if (isAnimatingLoad) return; 
 
         const currentScroll = window.pageYOffset;
@@ -19,10 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (isExpanded) return;
         
         if (currentScroll > lastScroll && currentScroll > 50) { 
-            // Scrolling Down - Hide
             island.style.transform = "translate(-50%, -150%)"; 
         } else { 
-            // Scrolling Up - Show (translate-x-1/2 tasach theva)
             island.style.transform = "translate(-50%, 0%)"; 
         }
         lastScroll = currentScroll;
@@ -32,25 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("load", () => {
         gsap.set(island, { opacity: 1, visibility: "visible" }); 
 
-        // Jar user top var asel, tarach animation kara. 
-        // Jar user ne khali scroll kela asel ani refresh kela, tar direct hide theva.
         if (window.scrollY < 50) {
-            // ✅ BUG FIX: Animating 'top' instead of 'y' to protect the transform styling
             gsap.fromTo(island, 
                 { top: "-100px" }, 
                 { 
-                    top: "24px", // 24px = top-6 in Tailwind
+                    top: "24px", 
                     duration: 1.2, 
                     ease: "power3.out", 
                     delay: 0.2,
-                    clearProps: "top", // Clean up inline styles after animation
+                    clearProps: "top", 
                     onComplete: () => { 
-                        isAnimatingLoad = false; // Allow scroll logic to work now
+                        isAnimatingLoad = false; 
                     }
                 }
             );
         } else {
-            // Page refreshed mid-way down
             isAnimatingLoad = false;
             island.style.transform = "translate(-50%, -150%)"; 
         }
@@ -58,25 +50,58 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.from(".hero-anim", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.5 });
     });
 
-    // Earth Timeline
-    setTimeout(() => { 
-        if(window.earthGroupObj && window.earthCameraObj) {
-            let tl = gsap.timeline({ scrollTrigger: { 
-                trigger: "#intro-spacer", start: "top top", end: "bottom bottom", scrub: 1, 
-                onStart: () => { window.earthConfig.autoRotate = false; },
-                onUpdate: (self) => { window.earthConfig.isRendering = self.progress <= 0.95; } 
-            } });
-            
-            tl.to(window.earthGroupObj.position, { x: 0, duration: 3, ease: "power2.inOut" })
-              .to(window.earthGroupObj.rotation, { y: -2.5, duration: 3, ease: "power2.inOut" }, "<")
-              .to(window.earthCameraObj.position, { z: 9, duration: 3, ease: "power2.inOut" }, "<")
-              .to("#hero", { opacity: 0, pointerEvents: "none", duration: 1 }, "<")
-              .to("#scroll-ui", { opacity: 0, duration: 1 }, "<")
-              .to("#about", { opacity: 1, pointerEvents: "auto", duration: 2 }, "-=1")
-              .to("#canvas-container", { opacity: 0, duration: 2 }, "<")
-              .to({}, { duration: 4 }); 
-        }
-    }, 100);
+    // --- Hero Canvas Image Sequence ---
+    const canvas = document.getElementById("hero-canvas");
+    const context = canvas.getContext("2d");
+
+    canvas.width = 1920; 
+    canvas.height = 1080;
+
+    const frameCount = 182; 
+
+    const currentFrame = index => {
+        let num = (index + 1).toString().padStart(3, '0'); 
+        return `./Assets/heroimg/ezgif-frame-${num}.jpg`;
+    };
+
+    const images = [];
+    const heroVideoSeq = { frame: 0 };
+
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        images.push(img);
+    }
+
+    images[0].onload = render;
+
+    // --- Cinematic Breathing Effect ---
+    gsap.to(canvas, {
+        scale: 1.15, 
+        duration: 15, 
+        repeat: -1, 
+        yoyo: true, 
+        ease: "sine.inOut" 
+    });
+
+    function render() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(images[heroVideoSeq.frame], 0, 0, canvas.width, canvas.height);
+    }
+
+    // Video Scroll Animation
+    gsap.to(heroVideoSeq, {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: "none",
+        scrollTrigger: {
+            trigger: "#hero", 
+            start: "top top",
+            end: "+=1700", 
+            scrub: 1, 
+        },
+        onUpdate: render 
+    });
 
     // Project Cards Scroll
     function getScrollAmount() { 
@@ -90,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Footer Animation
     gsap.from(".footer-item", { opacity: 0, y: 80, duration: 1, stagger: 0.3, ease: "power3.out", scrollTrigger: { trigger: "#footer", start: "top 80%" } });
 
-    // Smooth Scroll Links
+    // ✅ BUG FIX: Smooth Scroll Links for About
     const navLinks = document.querySelectorAll('nav a, #mobile-menu a, #footer a');
     navLinks.forEach(link => { 
         link.addEventListener('click', (e) => { 
@@ -98,9 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const tId = link.getAttribute('href'); 
             const menuBtn = document.getElementById('menu-btn');
             if(menuBtn && menuBtn.getAttribute('aria-expanded') === 'true') menuBtn.click(); 
-            if(tId === '#hero') window.scrollTo({ top: 0, behavior: 'smooth' }); 
-            else if (tId === '#about') window.scrollTo({ top: document.getElementById('intro-spacer').offsetHeight * 0.5, behavior: 'smooth' }); 
-            else document.querySelector(tId).scrollIntoView({ behavior: 'smooth' }); 
+            
+            if(tId === '#hero') {
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            } else { 
+                // आता कुठल्याही लिंकवर क्लिक केलं तरी ते बरोबर त्या सेक्शनवर जाईल
+                document.querySelector(tId).scrollIntoView({ behavior: 'smooth' }); 
+            } 
         }); 
     });
 

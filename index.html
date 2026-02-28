@@ -22,8 +22,8 @@
 </head>
 <body class="antialiased">
 
-    <div id="canvas-container" aria-hidden="true"></div>
-
+    <canvas id="hero-canvas" class="fixed top-0 left-0 w-full h-full object-cover -z-10"></canvas>
+   
     <nav id="island" class="gsap-reveal fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white/90 dark:bg-[#111]/80 border border-gray-200 dark:border-white/10 overflow-hidden flex flex-col items-center w-[280px] md:w-[500px] h-[55px] rounded-full">
         <div class="w-full h-[55px] flex items-center justify-between px-3 relative z-20 shrink-0">
             <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-black font-bold text-sm shadow-md">SSS</div>
@@ -58,47 +58,50 @@
 
     <main>
         <section id="hero" class="fixed-layer active">
-            
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
                 <div class="w-full md:w-1/2 space-y-6 pt-20 md:pt-0 hero-content">
-                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white hero-anim">
-                        <span>Creative</span>
-                        <span class="gradient-text block">Developer.</span>
-                    </h1>
-                    <p class="text-gray-400 max-w-md text-lg hero-anim">Aspiring Developer with solid technical skills and a drive to learn, grow, and build impactful solutions.</p>
+                   <h1 class="text-5xl md:text-7xl xl:text-8xl font-extrabold leading-tight hero-anim">
+                       <span>Creative</span>
+                       <span class="gradient-text block">Developer.</span>
+                   </h1>
+                    <p class="text-gray-400 max-w-md text-lg hero-anim"> Developer with solid technical skills and a drive to learn, grow, and build impactful solutions.</p>
                     <a href="#project-area" class="hero-anim inline-block bg-primary text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition hover:opacity-90 shadow-lg">View Work</a>
                 </div>
             </div>
         </section>
 
-        <div class="scroll-ui" id="scroll-ui">
-            <div class="text-[10px] tracking-[3px] text-white/50 font-bold mb-2">SCROLL TO EXPLORE</div>
-            <div class="w-[2px] h-[40px] bg-white/20 mx-auto overflow-hidden">
+        <div class="scroll-ui flex flex-col items-center" id="scroll-ui">
+            <div class="text-[10px] tracking-[3px] text-white font-bold mb-3 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-sm shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                SCROLL TO EXPLORE
+            </div>
+            <div class="w-[2px] h-[40px] bg-white/20 mx-auto overflow-hidden rounded-full">
                 <div id="bar" class="w-full h-full bg-primary animate-bounce"></div>
             </div>
         </div>
 
-        <section id="about" class="fixed-layer">
-            <article class="about-card">
-                <div class="shrink-0 flex justify-center">
-                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop" alt="Portrait" class="about-img">
-                </div>
-                <div class="flex flex-col justify-center text-left">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-1">Sandip Sawant</h2>
-                    <h3 class="text-lg md:text-xl text-primary font-medium mb-4">Creative Developer</h3>
-                    <div class="space-y-3 text-sm md:text-base opacity-90">
-                        <p>I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.</p>
-                        <p>I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.</p>
-                        <p>I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.</p>
-                    </div>
-                    <div class="mt-6">
-                        <a href="#project-area" class="bg-primary text-black px-6 py-2 rounded-full font-semibold hover:opacity-90 transition shadow-md">View Projects</a>
-                    </div>
-                </div>
-            </article>
-        </section>
-
         <div id="intro-spacer"></div>
+
+        <section id="about">
+            <div class="px-6 mx-auto flex justify-center">
+                <article class="about-card w-full max-w-6xl">
+                    <div class="shrink-0 flex justify-center">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop" alt="Portrait" class="about-img">
+                    </div>
+                    <div class="flex flex-col justify-center text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-1">Sandip Sawant</h2>
+                        <h3 class="text-lg md:text-xl text-primary font-medium mb-4">Creative Developer</h3>
+                        <div class="space-y-3 text-sm md:text-base opacity-90">
+                            <p>I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.</p>
+                            <p>I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.</p>
+                            <p>I build clean, responsive, and modern user interfaces focused on usability, performance, and visual clarity.</p>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#project-area" class="bg-primary text-black px-6 py-2 rounded-full font-semibold hover:opacity-90 transition shadow-md inline-block">View Projects</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
         <section id="project-area">
             <div class="sticky-wrapper">
@@ -110,7 +113,6 @@
                               <div class="img-wrapper">
                                   <img src="Assets/images/Pioneercoats.webp" alt="Surface Coating Services">
                               </div>
-
                               <div class="card-details">
                                   <div class="text-box">
                                       <h3 class="font-semibold">Pioneer Coats</h3>
@@ -125,7 +127,6 @@
                               <div class="img-wrapper">
                                   <img src="Assets/images/SSKinfosys.webp" alt="Electronics Store">
                               </div>
-
                               <div class="card-details">
                                   <div class="text-box">
                                       <h3 class="font-semibold">SSK Infosys</h3>
@@ -140,7 +141,6 @@
                               <div class="img-wrapper">
                                   <img src="Assets/images/Saraswati ladoo Depot.webp" alt="Sweets Store">
                               </div>
-
                               <div class="card-details">
                                   <div class="text-box">
                                       <h3 class="font-semibold">Saraswati Ladu Depot</h3>
@@ -155,7 +155,6 @@
                               <div class="img-wrapper">
                                   <img src="Assets/images/Reformcleaners.webp" alt="House Cleaning">
                               </div>
-
                               <div class="card-details">
                                   <div class="text-box">
                                       <h3 class="font-semibold">Reform Cleaners</h3>
@@ -170,7 +169,6 @@
                               <div class="img-wrapper">
                                   <img src="Assets/images/iHomezindia.webp" alt="Hotelware suppliers">
                               </div>
-
                               <div class="card-details">
                                   <div class="text-box">
                                       <h3 class="font-semibold">iHomezIndia</h3>
@@ -185,7 +183,6 @@
                               <div class="img-wrapper">
                                   <img src="Assets/images/Garagedaddy.webp" alt="Vehicle servicing ">
                               </div>
-
                               <div class="card-details">
                                   <div class="text-box">
                                       <h3 class="font-semibold">Garage Daddy</h3>
@@ -200,7 +197,6 @@
                               <div class="img-wrapper">
                                   <img src="Assets/images/Advikasdongre.webp" alt="Advocate services">
                               </div>
-
                               <div class="card-details">
                                   <div class="text-box">
                                       <h3 class="font-semibold">Ad.Vikas Dongre</h3>
@@ -211,8 +207,6 @@
                                   </a>
                               </div>
                            </article>
-                             
-                             
                         </div>
                     </div>
                 </div>
@@ -270,7 +264,7 @@
 
     <footer id="footer">
         <div class="footer-content">
-            <div class="glass-footer max-w-6xl mx-auto px-8 py-16 rounded-t-3xl mt-8 footer-item">
+            <div class="glass-footer max-w-6xl mx-auto px-8 pt-16 pb-6 rounded-t-3xl mt-8 footer-item">
                 <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
                     <div>
                         <h4 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Quick Links</h4>
@@ -279,7 +273,6 @@
                             <li><a href="#skills" class="hover:text-primary transition">Skills</a></li>
                             <li><a href="#project-area" class="hover:text-primary transition">Projects</a></li>
                             <li><a href="#contact-section" class="hover:text-primary transition">Contact</a></li>
-                            
                         </ul>
                     </div>
                     <div class="flex flex-col items-center">
@@ -310,9 +303,9 @@
 
     <script src="main.js"></script>
     <script src="theme.js"></script>
-    <script src="earth.js"></script>
     <script src="scroll.js"></script>
     <script src="form.js"></script>
     <script src="counter.js"></script>
+    
 </body>
 </html>

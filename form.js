@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
-                    access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // 👈👈 PUT YOUR KEY HERE
+                    access_key: "9a99ff8f-d813-48f2-98dc-15e497fd3a1d", // 👈👈 PUT YOUR KEY HERE
                     name: document.getElementById("name").value,
                     email: document.getElementById("email").value,
                     message: document.getElementById("message").value,
