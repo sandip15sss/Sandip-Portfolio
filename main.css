@@ -637,15 +637,3 @@ html.light #scrollTopBtn:hover {
     visibility: hidden;
 }
 
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 9999;
-    background-image: url('https://assets.codepen.io/14179/noise.png');
-    opacity: 0.4; 
-}
