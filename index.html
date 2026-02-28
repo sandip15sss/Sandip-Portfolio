@@ -18,6 +18,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="preload" as="image" href="./Assets/heroimg/ezgif-frame-001.jpg">
 </head>
 <body class="antialiased">
 
@@ -36,7 +37,7 @@
             </div>
 
             <div class="flex items-center gap-2">
-                <button id="theme-btn" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-800 dark:text-white">
+                <button id="theme-btn" aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-800 dark:text-white">
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
                     <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
                 </button>
@@ -277,11 +278,11 @@
                     <div class="flex flex-col items-center">
                         <h4 class="footer-heading text-center uppercase tracking-widest text-sm mb-6 font-semibold">Connect</h4>
                         <div class="flex gap-4 social mt-2 justify-center">
-                            <a href="#" class="social-btn"><i class="fa-brands fa-github icon-github"></i></a>
-                            <a href="#" class="social-btn"><i class="fa-brands fa-linkedin icon-linkedin"></i></a>
-                            <a href="#" class="social-btn"><i class="fa-solid fa-envelope icon-email"></i></a>
-                            <a href="#" class="social-btn"><i class="fa-brands fa-instagram icon-instagram"></i></a>
-                            <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp icon-whatsapp"></i></a>
+                            <a href="#" class="social-btn"  aria-label="GitHub profile"><i class="fa-brands fa-github icon-github"></i></a>
+                            <a href="#" class="social-btn"  aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin icon-linkedin"></i></a>
+                            <a href="#" class="social-btn"  aria-label="Email Contact"><i class="fa-solid fa-envelope icon-email"></i></a>
+                            <a href="#" class="social-btn"  aria-label="instagram profile"><i class="fa-brands fa-instagram icon-instagram"></i></a>
+                            <a href="#" class="social-btn"  aria-label="whatsapp connect"><i class="fa-brands fa-whatsapp icon-whatsapp"></i></a>
                         </div>
                     </div>
                     <div class="md:text-right flex flex-col items-center md:items-end">
@@ -300,11 +301,11 @@
 
     <button id="scrollTopBtn" class="fixed bottom-6 right-6 p-3 rounded-full opacity-0 pointer-events-none flex items-center justify-center h-12 w-12 shadow-lg"><i data-lucide="arrow-up"></i></button>
 
-    <script src="main.js"></script>
-    <script src="theme.js"></script>
-    <script src="scroll.js"></script>
-    <script src="form.js"></script>
-    <script src="counter.js"></script>
+    <script src="main.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="scroll.js" defer></script>
+    <script src="form.js" defer></script>
+    <script src="counter.js" defer></script>
     
 </body>
 </html>
