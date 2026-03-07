@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             island.style.transform = "translate(-50%, -150%)"; 
         }
         
+        // हिरो सेक्शनचा टेक्स्ट स्मूथली वर येण्यासाठी
         gsap.fromTo(".hero-anim", 
             { y: 40, opacity: 0 }, 
             { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.5, clearProps: "all" }
@@ -53,79 +54,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // 🚀 SMART IMAGE PRELOADER (OPTIMIZED)
+    // 🚀 NEW: MAGNETIC BUTTONS EFFECT (PREMIUM VIBE)
     // ==========================================
-    const canvas = document.getElementById("hero-canvas");
-    const context = canvas.getContext("2d");
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = (e.clientX - rect.left) - rect.width / 2;
+            const y = (e.clientY - rect.top) - rect.height / 2;
+            
+            gsap.to(btn, {
+                x: x * 0.4, // माउसकडे हलकं खेचलं जाईल
+                y: y * 0.4,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
 
-    canvas.width = 1920; 
-    canvas.height = 1080;
-
-    const frameCount = 182; 
-    const currentFrame = index => {
-        let num = (index + 1).toString().padStart(3, '0'); 
-        return `./Assets/heroimg/ezgif-frame-${num}.jpg`;
-    };
-
-    const images = [];
-    const heroVideoSeq = { frame: 0 };
-
-    // १. सर्वात आधी फक्त पहिली (Index 0) इमेज लोड करा
-    const firstImage = new Image();
-    firstImage.src = currentFrame(0);
-    images[0] = firstImage;
-
-    firstImage.onload = () => {
-        // पहिली इमेज लोड झाली की ती कॅनव्हासवर दाखवा (पेज लगेच दिसेल)
-        render(); 
-        
-        // २. आणि मग उरलेल्या १८१ इमेजेस 'Background' मध्ये लोड करायला घ्या
-        loadRestOfImages();
-    };
-
-    function loadRestOfImages() {
-        for (let i = 1; i < frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            images[i] = img;
-        }
-    }
-
-    function render() {
-        const img = images[heroVideoSeq.frame];
-        // ३. जर इमेज पूर्ण डाउनलोड (complete) झाली असेल तरच ती कॅनव्हासवर काढा (याने एरर येणार नाही)
-        if (img && img.complete) {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.drawImage(img, 0, 0, canvas.width, canvas.height);
-        }
-    }
-
-    // --- Cinematic Breathing Effect ---
-    gsap.to(canvas, {
-        scale: 1.15, 
-        duration: 15, 
-        repeat: -1, 
-        yoyo: true, 
-        ease: "sine.inOut" 
-    });
-
-    // Video Scroll Animation
-    gsap.to(heroVideoSeq, {
-        frame: frameCount - 1,
-        snap: "frame",
-        ease: "none",
-        scrollTrigger: {
-            trigger: "#hero", 
-            start: "top top",
-            end: "+=1700", 
-            scrub: 1, 
-        },
-        onUpdate: render 
+        btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, {
+                x: 0,
+                y: 0,
+                duration: 0.7,
+                ease: "elastic.out(1, 0.3)" // माउस काढल्यावर मस्त बाऊन्स होऊन जागेवर येईल
+            });
+        });
     });
     // ==========================================
 
 
-    // Project Cards Scroll
+    // Project Cards Scroll (तुझं जुनं लॉजिक तसंच ठेवलंय)
     function getScrollAmount() { 
         const track = document.querySelector(".project-track");
         const windowEl = document.querySelector(".project-window");
@@ -162,3 +120,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     if(topBtn) topBtn.onclick = () => window.scrollTo({top:0, behavior:"smooth"});
 });
+
+
+// ==========================================
+   
+        
+      
+    
+
+    // 2. Magnetic Buttons Effect
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = (e.clientX - rect.left) - rect.width / 2;
+            const y = (e.clientY - rect.top) - rect.height / 2;
+            
+            gsap.to(btn, { x: x * 0.4, y: y * 0.4, duration: 0.5, ease: "power2.out" });
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" });
+        });
+    });
