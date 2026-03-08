@@ -331,12 +331,19 @@
                         </div>
                     </div>
                     <div class="md:text-right flex flex-col items-center md:items-end">
-                        <h4 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Visitors</h4>
-                        <div class="visitor-box text-center md:text-right">
-                            <div class="text-sm text-gray-400 mb-1">👀 Total Visits</div>
-                            <div id="visitorCount" class="text-2xl font-bold text-primary">0</div>
-                        </div>
-                    </div>
+    <h4 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Give Heart</h4>
+    
+   <button id="giveHeartBtn" class="visitor-box flex flex-col items-center justify-center gap-6 cursor-pointer relative z-10 transition-all duration-300 hover:border-primary group px-8 py-5 min-w-[120px]">
+    
+    <div class="relative flex items-center justify-center">
+        <i class="fa-regular fa-heart text-4xl text-white transition-all duration-300 group-hover:text-primary dark-text-switch" id="smallHeart"></i>
+        
+        <i class="fa-solid fa-heart absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl opacity-0 pointer-events-none gradient-heart" id="floatingHeart"></i>
+    </div>
+
+    <div id="likeCount" class="text-xl font-bold text-primary transition-all duration-300">771</div>
+</button>
+</div>
                 </div>
                 <div class="footer-divider my-12"></div>
                 <div class="copyright-text text-center text-sm font-medium">Created with Ideas, Efforts and AI<br>© 2026 Sandip Sawant</div>
@@ -344,7 +351,13 @@
         </div>
     </footer>
 
-    <button id="scrollTopBtn" class="fixed bottom-6 right-6 p-3 rounded-full opacity-0 pointer-events-none flex items-center justify-center h-12 w-12 shadow-lg"><i data-lucide="arrow-up"></i></button>
+<button id="scrollTopBtn" class="progress-btn">
+    <svg class="progress-ring" width="60" height="60" viewBox="0 0 60 60">
+        <circle class="progress-ring-track" stroke="rgba(255,255,255,0.3)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+        <circle class="progress-ring-circle" stroke="currentColor" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
+    </svg>
+    <i data-lucide="arrow-up" class="arrow-icon"></i>
+</button>
 
     <script src="main.js" defer></script>
     <script src="theme.js" defer></script>

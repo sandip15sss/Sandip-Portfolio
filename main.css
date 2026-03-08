@@ -65,9 +65,8 @@ h1, h2, h3, h4, h5, h6, .section-title {
     color: #ffffff; 
     font-family: var(--font-creative);
 }
-html.light .solid-text { 
-    color: #111111; 
-}
+/* 👉 लाईट मोडची काळी अक्षरे काढली (कारण कॅनव्हास डार्कच राहतो) */
+/* html.light .solid-text { color: #111111; } */
 
 /* 👉 DEVELOPER शब्दासाठी फॉन्ट */
 .hollow-text {
@@ -77,9 +76,7 @@ html.light .solid-text {
     text-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
     font-family: var(--font-developer);
 }
-html.light .hollow-text { 
-    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.8); 
-}
+/* html.light .hollow-text { -webkit-text-stroke: 2px rgba(0, 0, 0, 0.8); } */
 
 
 /* प्रोजेक्ट कार्डचे टायटल, स्किल कार्डचे टायटल आणि फुटर हेडिंग्ससाठी Outfit फॉन्ट */
@@ -100,8 +97,6 @@ html.light .hollow-text {
     background-clip: text;
     color: transparent;
 }
-
-/* ... (पुढचा सर्व CSS कोड जसाच्या तसा ठेव) ... */
 
 /* ==========================================
    LIGHT MODE LOGIC
@@ -163,9 +158,6 @@ html.light #mobile-menu a:hover {
 }
 
 /* ==========================================
-   ULTRA-PREMIUM: MINIMALIST FLORAL LINE ART
-   ========================================== */
-/* ==========================================
    AESTHETIC GEOMETRIC SPARKLE (NO WAVES)
    ========================================== */
 .design-drawings {
@@ -177,10 +169,7 @@ html.light #mobile-menu a:hover {
     background-size: 200px 200px; 
     
     /* 👉 NEW: एकदम Aesthetic ४-पानांची चांदणी (Sparkle), वर्तुळ आणि मधला डॉट */
-    
-
-
-background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
     
     /* कडांना हळूहळू अंधुक करण्यासाठी Premium Vignette effect */
     mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
@@ -214,7 +203,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox=
    ========================================== */
 .hero-content-wrapper {
     position: relative;
-    z-index: 10;
+    z-index: 10 !important; /* 👉 बदल: हे जोडल्यामुळे टेक्स्ट नेहमी डिझाईनच्या वर दिसेल */
+    
     width: 100%;
     height: 100%;
     display: flex;
@@ -243,31 +233,11 @@ background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox=
     flex-direction: column;
 }
 
-.solid-text { 
-    color: #ffffff; 
-}
-
-html.light .solid-text { 
-    color: #111111; 
-}
-
-.hollow-text {
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
-    position: relative;
-    text-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
-}
-
-html.light .hollow-text { 
-    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.8); 
-}
-
 .indented-text {
     margin-left: clamp(2rem, 12vw, 8rem); 
     margin-top: 5px;
 }
 
-/* --- SHORT PARAGRAPH (Enhanced Readability) --- */
 /* --- SHORT PARAGRAPH (Enhanced Readability) --- */
 .hero-short-para {
     font-size: clamp(1.1rem, 2vw, 1.3rem);
@@ -283,13 +253,8 @@ html.light .hollow-text {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
-html.light .hero-short-para { 
-    color: #000000; /* 👉 लाईट मोडमध्ये गडद काळा रंग */
-    font-weight: 600; /* 👉 लाईट मोडमध्ये अजून थोडा जाड फॉन्ट */
-    
-    /* 👉 लाईट मोडसाठी पांढऱ्या रंगाची सावली (Glow) */
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 4px 15px rgba(255, 255, 255, 0.9);
-}
+/* 👉 हे सुद्धा कमेंट केलंय कारण लाईट मोडमध्ये टेक्स्ट पांढरंच राहायला हवं */
+/* html.light .hero-short-para { ... } */
 
 .hero-cta-group { 
     display: flex; 
@@ -365,14 +330,13 @@ html.light .btn-ultra-glass {
     }
 
     .hero-main-title {
-        /* आधीची साईझ काढून ही नवीन मोठी साईझ टाक */
         font-size: clamp(4rem, 16vw, 5.5rem) !important; 
-        line-height: 0.85 !important; /* ओळी एकदम घट्ट (Tight) राहतील */
+        line-height: 0.85 !important; 
         margin-left: 0 !important;
     }
 
     .hollow-text {
-        margin-top: 10px !important; /* हेडिंग मोठं झाल्यामुळे ओव्हरलॅप थोडा वाढवला */
+        margin-top: 10px !important; 
     }
 
     .indented-text {
@@ -381,24 +345,24 @@ html.light .btn-ultra-glass {
     }
 
     .hero-short-para {
-        font-size: 0.95rem !important; /* साईझ थोडी कमी केली */
-        line-height: 1.7 !important; /* ओळींमध्ये गॅप वाढवला (Breathing room) */
-        margin-top: 24px !important; /* टायटल आणि पॅराग्राफमध्ये गॅप */
-        margin-bottom: 32px !important; /* पॅरा आणि बटन्समध्ये गॅप */
+        font-size: 0.95rem !important; 
+        line-height: 1.7 !important; 
+        margin-top: 24px !important; 
+        margin-bottom: 32px !important; 
         max-width: 100% !important;
     }
 
     .hero-cta-group {
         margin-left: 0 !important;
         display: flex;
-        flex-direction: column; /* बटन्स परफेक्ट एकाखाली एक येतील */
-        gap: 16px !important; /* दोन्ही बटन्समध्ये परफेक्ट गॅप */
+        flex-direction: column; 
+        gap: 16px !important; 
         width: 100%;
     }
 
     .btn-primary, 
     .btn-ultra-glass {
-        width: 60%; /* मोबाईलवर पूर्ण रुंदी घेतील */
+        width: 50%; 
         text-align: center;
         justify-content: center;
     }
@@ -410,7 +374,6 @@ html.light .btn-ultra-glass {
 #about {
     position: relative;
     height: 100vh;
-    z-index: 30;
     background-color: var(--bg-color);
     margin-top: 0; 
     padding-top: 100px;
@@ -781,15 +744,15 @@ html.light .input-field:focus {
    ========================================== */
 #footer {
     position: relative; 
-    z-index: 100; 
-    background: radial-gradient(circle at 20% 20%, #111111, #000000 60%);
+   
+    background: var(--bg-color) ;
     padding: 30px 0 0 0; 
     overflow: hidden; 
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
 
 html.light #footer { 
-    background: #ffffff; 
+    background: #ffffff ; 
     color: #000000; 
 }
 
@@ -952,4 +915,140 @@ html.light #scrollTopBtn:hover {
 .gsap-reveal { 
     opacity: 0; 
     visibility: hidden; 
+}
+
+/* ==========================================
+   SCROLL PROGRESS BUTTON (Proper Border Fixed)
+   ========================================== */
+.progress-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999 !important;
+    opacity: 1 !important; 
+    pointer-events: auto !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    line-height: 0; 
+}
+
+.progress-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px);
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+    shape-rendering: geometricPrecision; 
+    display: block;
+}
+
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.1s linear;
+    stroke: #00e5ff;
+    stroke-linecap: round;
+    stroke-dasharray: 163.4; 
+    stroke-dashoffset: 163.4;
+    stroke-width: 4 !important; 
+}
+
+.progress-ring-track {
+    stroke-width: 4 !important; 
+    shape-rendering: geometricPrecision; 
+}
+
+.arrow-icon {
+    position: absolute;
+    z-index: 10;
+    width: 22px; 
+    height: 22px;
+}
+
+html.light .progress-btn {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+html.light .progress-ring-track {
+    stroke: rgba(0, 0, 0, 0.15); 
+}
+
+html.light .progress-ring-circle {
+    stroke: #000000; 
+}
+
+
+//* ==========================================
+   FOOTER "GIVE HEART" FLOATING GRADIENT ANIMATION
+   ========================================== */
+#giveHeartBtn {
+    overflow: visible; 
+    min-width: 140px; 
+}
+
+/* लाईट मोडमध्ये टेक्स्टचा रंग काळा करण्यासाठी */
+html.light .dark-text-switch {
+    color: #000000;
+}
+
+/* 👉 फिक्स: क्लिक केल्यावर बेस हृदय 'लाल'च राहील (लाईट मोडमध्ये काळं होणार नाही) */
+#giveHeartBtn.is-liked #smallHeart {
+    color: #ff2b56 !important; /* !important मुळे काळा रंग ओव्हरराईड होईल */
+    font-weight: 900; 
+    transform: scale(1.1); 
+}
+
+/* 👉 लाल आणि पिंक ग्रेडियंट डिझाईन */
+.gradient-heart {
+    background: linear-gradient(45deg, #ff2b56 0%, #ff8da1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* क्लिक केल्यावर हे ॲनिमेशन चालेल */
+#giveHeartBtn.is-liked.animate-pop #floatingHeart {
+    animation: floatUpAndFade 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 👉 १००px वर जाऊन गायब होण्याचं ॲनिमेशन */
+@keyframes floatUpAndFade {
+    0% { 
+        transform: translate(-50%, -50%) scale(0.5); 
+        opacity: 0; 
+    }
+    20% { 
+        transform: translate(-50%, -50%) scale(1.5); /* थोडं मोठं होईल */
+        opacity: 1; 
+    }
+    100% { 
+        /* मूळ जागेवरून 100px वर जाईल (-100px) */
+        transform: translate(-50%, calc(-50% - 100px)) scale(1.8); 
+        opacity: 0; /* आणि गायब होईल */
+    }
+}
+
+/* नंबर बदलताना उडी मारण्याचं ॲनिमेशन */
+@keyframes countBounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); color: #ff2b56; }
+    100% { transform: scale(1); }
+}
+
+.count-animate {
+    animation: countBounce 0.4s ease-out;
 }
