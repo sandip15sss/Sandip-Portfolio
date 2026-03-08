@@ -1,27 +1,27 @@
 @font-face {
     font-family: 'SuperSlicedItalic';
-    src: url('./Assets/fonts/SuperSlicedItalic-aYoJK.ttf') format('truetype');
+    src: url('./Assets/Fonts/SuperSlicedItalic-aYoJK.ttf') format('truetype');
     font-display: swap;
 }
 
 /* २. Developer शब्दासाठी (Normal) */
 @font-face {
     font-family: 'VampireWarsNormal';
-    src: url('./Assets/fonts/Vampire Wars.ttf') format('truetype');
+    src: url('./Assets/Fonts/VampireWars.ttf') format('truetype');
     font-display: swap;
 }
 
 /* ३. सर्व Section Headings साठी (Super Sliced Normal) 👉 NEW */
 @font-face {
     font-family: 'SuperSlicedNormal';
-    src: url('./Assets/fonts/SuperSliced-OG156.ttf') format('truetype');
+    src: url('./Assets/Fonts/SuperSliced-OG156.ttf') format('truetype');
     font-display: swap;
 }
 
 /* ४. पूर्ण वेबसाईटच्या Content/Paragraphs साठी (Outfit) */
 @font-face {
     font-family: 'Outfit';
-    src: url('./Assets/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+    src: url('./Assets/Fonts/Outfit-VariableFont_wght.ttf') format('truetype');
     font-display: swap;
 }
 
