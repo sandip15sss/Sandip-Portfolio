@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         root.classList.remove('dark');
         root.classList.add('light');
     } else {
+        root.classList.remove('light');
         root.classList.add('dark'); 
     }
 
