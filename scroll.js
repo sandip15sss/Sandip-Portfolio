@@ -267,3 +267,76 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// ==========================================
+// GSAP APPLE-STYLE CURTAIN REVEAL
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    // चेक करा की GSAP लोड झालाय का
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // हिरो सेक्शन मागे जाताना लहान, अंधुक आणि 'Blur' होईल
+        gsap.to(".premium-hero", {
+            scrollTrigger: {
+                trigger: "#about", 
+                start: "top bottom", // जेव्हा About स्क्रीनच्या खाली दिसायला लागेल तेव्हा सुरू
+                end: "top top",      // जेव्हा About एकदम वरती (100%) येईल तेव्हा पूर्ण
+                scrub: 1,            // १ सेकंदाचा स्मूथ लॅग (हाच खरा Apple सारखा फील देतो)
+            },
+            scale: 0.92,             // ९२% लहान होईल
+            opacity: 0.3,            // अंधार होईल
+            filter: "blur(8px)",     // 👉 सिक्रेट: कॅमेरा लेन्ससारखा भारी ब्लर इफेक्ट!
+            ease: "none"
+        });
+    } else {
+        console.warn("GSAP or ScrollTrigger is not loaded!");
+    }
+});
+
+
+
+// ==========================================
+// GSAP MACBOOK SCALE-UP (PROJECT WINDOW)
+// ==========================================
+// १. "Selected Work" हेडिंग खालून स्मूथली वर येईल
+gsap.fromTo("#project-area .section-title", 
+    { 
+        y: 80, 
+        opacity: 0 
+    },
+    {
+        scrollTrigger: {
+            trigger: "#project-area",
+            start: "top 85%", // जेव्हा सेक्शन स्क्रीनवर दिसायला लागेल
+            end: "top 45%",
+            scrub: 1
+        },
+        y: 0,
+        opacity: 1,
+        ease: "power2.out"
+    }
+);
+
+// २. प्रोजेक्ट खिडकी (MacBook Scale-Up) ॲनिमेशन
+gsap.fromTo(".project-window", 
+    {
+        scale: 0.6,          // सुरुवातीला ६०% लहान असेल
+        opacity: 0.2,        // थोडी अंधुक असेल
+        filter: "blur(15px)", // कॅमेरा लेन्ससारखा ब्लर इफेक्ट
+        transformOrigin: "center bottom" // खालून वर उघडल्यासारखा फील येण्यासाठी
+    },
+    {
+        scrollTrigger: {
+            trigger: "#project-area",
+            start: "top 75%", // स्क्रीनच्या ७५% भागावर आल्यावर सुरू होईल
+            end: "top 20%",   // वर आल्यावर पूर्ण होईल
+            scrub: 1.5,       // एकदम स्मूथनेस (1.5 सेकंद लॅग)
+        },
+        scale: 1,            // १००% ओरिजनल साईझला येईल
+        opacity: 1,          // पूर्ण स्पष्ट दिसेल
+        filter: "blur(0px)", // ब्लर निघून जाईल
+        ease: "power2.out"
+    }
+);

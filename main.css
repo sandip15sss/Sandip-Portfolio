@@ -1,38 +1,33 @@
+/* ==========================================
+   1. FONTS & TYPOGRAPHY
+   ========================================== */
 @font-face {
     font-family: 'SuperSlicedItalic';
     src: url('./Assets/Fonts/SuperSlicedItalic-aYoJK.ttf') format('truetype');
     font-display: swap;
 }
 
-/* २. Developer शब्दासाठी (Normal) */
 @font-face {
     font-family: 'VampireWarsNormal';
     src: url('./Assets/Fonts/VampireWars.ttf') format('truetype');
     font-display: swap;
 }
 
-/* ३. सर्व Section Headings साठी (Super Sliced Normal) 👉 NEW */
 @font-face {
     font-family: 'SuperSlicedNormal';
     src: url('./Assets/Fonts/SuperSliced-OG156.ttf') format('truetype');
     font-display: swap;
 }
 
-/* ४. पूर्ण वेबसाईटच्या Content/Paragraphs साठी (Outfit) */
 @font-face {
     font-family: 'Outfit';
     src: url('./Assets/Fonts/Outfit-VariableFont_wght.ttf') format('truetype');
     font-display: swap;
 }
 
-/* ==========================================
-   GLOBAL TYPOGRAPHY VARIABLES
-   ========================================== */
 :root {
     --font-creative: 'SuperSlicedItalic', sans-serif;
     --font-developer: 'VampireWarsNormal', sans-serif;
-    
-    /* 👉 बदल इथे केलाय: हेडिंगसाठी Super Sliced Normal आणि कंटेंटसाठी Outfit */
     --font-heading: 'SuperSlicedNormal', sans-serif; 
     --font-body: 'Outfit', sans-serif; 
     
@@ -43,53 +38,28 @@
     --primary-glow: rgba(36, 219, 247, 0.4);
 }
 
-/* 👉 पूर्ण वेबसाईटचा (कंटेंट) डिफॉल्ट फॉन्ट */
 body {
     margin: 0;
     background-color: var(--bg-color);
     color: #ffffff;
-    font-family: var(--font-body); /* इथे Outfit लागेल */
+    font-family: var(--font-body);
     overflow-x: hidden;
     transition: background-color 0.3s ease;
 }
 
-/* 👉 सर्व सेक्शन टायटल्ससाठी (Headings) फॉन्ट */
 h1, h2, h3, h4, h5, h6, .section-title {
-    font-family: var(--font-heading); /* इथे Super Sliced Normal लागेल */
-    font-weight: normal; /* डिस्प्ले फॉन्ट असल्यामुळे नॉर्मल वेट ठेवलाय */
+    font-family: var(--font-heading);
+    font-weight: normal;
     letter-spacing: 0.02em;
 }
 
-/* 👉 CREATIVE शब्दासाठी फॉन्ट */
-.solid-text { 
-    color: #ffffff; 
-    font-family: var(--font-creative);
-}
-/* 👉 लाईट मोडची काळी अक्षरे काढली (कारण कॅनव्हास डार्कच राहतो) */
-/* html.light .solid-text { color: #111111; } */
-
-/* 👉 DEVELOPER शब्दासाठी फॉन्ट */
-.hollow-text {
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
-    position: relative;
-    text-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
-    font-family: var(--font-developer);
-}
-/* html.light .hollow-text { -webkit-text-stroke: 2px rgba(0, 0, 0, 0.8); } */
-
-
-/* प्रोजेक्ट कार्डचे टायटल, स्किल कार्डचे टायटल आणि फुटर हेडिंग्ससाठी Outfit फॉन्ट */
-.text-box h3,
-.skill-card h3,
+.text-box h3, 
+.skill-card h3, 
 .footer-heading {
-    font-family: var(--font-body) !important; /* Outfit फॉन्ट फोर्स करण्यासाठी */
-    letter-spacing: normal !important; /* Super Sliced ची स्पेसिंग काढण्यासाठी */
+    font-family: var(--font-body) !important;
+    letter-spacing: normal !important;
 }
 
-/* ----------------------------------------------------
-   इथून खाली तुझा जुना CSS कोड आहे तसाच राहू दे
-   ---------------------------------------------------- */
 .gradient-text {
     background: linear-gradient(135deg, var(--primary), #0077ff);
     -webkit-background-clip: text;
@@ -99,43 +69,44 @@ h1, h2, h3, h4, h5, h6, .section-title {
 }
 
 /* ==========================================
-   LIGHT MODE LOGIC
+   2. LIGHT MODE LOGIC
    ========================================== */
-html.light body {
-    background-color: #000000;
-    color: #ffffff;
+html.light body { 
+    background-color: #000000; 
+    color: #ffffff; 
 }
 
-html.light #project-area,
-html.light #skills,
-html.light #contact-section,
-html.light #about {
-    background-color: #ffffff;
-    color: #000000;
+html.light #project-area, 
+html.light #skills, 
+html.light #contact-section { 
+    background-color: #ffffff; 
+    color: #000000; 
 }
 
-html.light #island {
-    background-color: rgba(255, 255, 244, 0.95);
-    border-color: rgba(0, 0, 0, 0.8) !important;
+html.light #island { 
+    background-color: rgba(255, 255, 244, 0.95); 
+    border-color: rgba(0, 0, 0, 0.8) !important; 
 }
 
-html.light #island a,
-html.light #theme-btn,
-html.light #menu-btn,
-html.light #mobile-menu a {
-    color: #000000 !important;
+html.light #island a, 
+html.light #theme-btn, 
+html.light #menu-btn, 
+html.light #mobile-menu a { 
+    color: #000000 !important; 
 }
 
-html.light #island a:hover,
-html.light #mobile-menu a:hover {
-    color: var(--primary) !important;
+html.light #island a:hover, 
+html.light #mobile-menu a:hover { 
+    color: var(--primary) !important; 
 }
 
 /* ==========================================
-   ULTRA-PREMIUM HERO (WebGL READY)
+   3. ULTRA-PREMIUM HERO (GSAP FIXED)
    ========================================== */
 .premium-hero {
-    position: relative;
+    position: fixed !important; 
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     min-height: 100vh;
@@ -143,142 +114,134 @@ html.light #mobile-menu a:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: transparent; 
+    background-color: transparent;
+    z-index: 0 !important;
 }
 
-/* WebGL Canvas Setting */
-#hero-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
+#hero-canvas { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 0; 
+    pointer-events: none; 
 }
 
-/* ==========================================
-   AESTHETIC GEOMETRIC SPARKLE (NO WAVES)
-   ========================================== */
 .design-drawings {
     position: absolute; 
     inset: 0; 
-    z-index: 1; /* रंगांच्या वर पण टेक्स्टच्या मागे */
-    
-    /* साईझ 200px ठेवलीये म्हणजे डिझाईन सुटसुटीत आणि मोकळी दिसेल */
+    z-index: 1;
     background-size: 200px 200px; 
-    
-    /* 👉 NEW: एकदम Aesthetic ४-पानांची चांदणी (Sparkle), वर्तुळ आणि मधला डॉट */
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-    
-    /* कडांना हळूहळू अंधुक करण्यासाठी Premium Vignette effect */
     mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
     -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
-    
     pointer-events: none;
 }
 
-/* The Glass Sheen Reflection */
-.glass-sheen {
+.glass-sheen { 
     position: absolute; 
     inset: 0; 
-    z-index: 2;
-    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.02) 100%);
-    pointer-events: none;
+    z-index: 2; 
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.02) 100%); 
+    pointer-events: none; 
 }
 
-/* Cinematic Noise Overlay */
-.noise-overlay {
+.noise-overlay { 
     position: absolute; 
     inset: 0; 
-    z-index: 3;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    z-index: 3; 
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); 
     opacity: 0.04; 
-    pointer-events: none;
-    mix-blend-mode: overlay;
+    pointer-events: none; 
+    mix-blend-mode: overlay; 
 }
 
-/* ==========================================
-   HERO CONTENT LAYOUT
-   ========================================== */
-.hero-content-wrapper {
-    position: relative;
-    z-index: 10 !important; /* 👉 बदल: हे जोडल्यामुळे टेक्स्ट नेहमी डिझाईनच्या वर दिसेल */
-    
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 6%;
-    max-width: 1400px;
-    margin: 0 auto;
+.hero-content-wrapper { 
+    position: relative; 
+    z-index: 10 !important; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    padding: 0 6%; 
+    max-width: 1400px; 
+    margin: 0 auto; 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
     .hero-content-wrapper { 
         padding-left: 10%; 
-    }
+    } 
 }
 
-.hero-main-title {
-    font-size: clamp(4rem, 9vw, 8.5rem);
-    font-weight: 900;
-    line-height: 0.95;
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-
-.indented-text {
-    margin-left: clamp(2rem, 12vw, 8rem); 
-    margin-top: 5px;
-}
-
-/* --- SHORT PARAGRAPH (Enhanced Readability) --- */
-.hero-short-para {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
+.hero-main-title { 
+    font-size: clamp(4rem, 9vw, 8.5rem); 
+    font-weight: 900; 
+    line-height: 0.95; 
+    margin-bottom: 24px; 
+    letter-spacing: -0.02em; 
     color: #ffffff; 
-    max-width: 550px;
-    /* 👉 बदल: 40px च्या जागी 70px केलंय (बटन्स आणि पॅरा मध्ये गॅप वाढवण्यासाठी) */
-    margin: 0 0 130px var(--hero-indent); 
-    margin-bottom: 20px;
-    line-height: 1.6;
-    font-weight: 500; 
-    letter-spacing: 0.01em;
-    text-align: left;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 15px rgba(0, 0, 0, 0.6);
+    text-align: left; 
+    display: flex; 
+    flex-direction: column; 
 }
 
-/* 👉 हे सुद्धा कमेंट केलंय कारण लाईट मोडमध्ये टेक्स्ट पांढरंच राहायला हवं */
-/* html.light .hero-short-para { ... } */
+.solid-text { 
+    color: #ffffff; 
+    font-family: var(--font-creative); 
+}
+
+.hollow-text { 
+    color: transparent; 
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9); 
+    position: relative; 
+    text-shadow: 0 0 30px rgba(0, 229, 255, 0.4); 
+    font-family: var(--font-developer); 
+}
+
+.indented-text { 
+    margin-left: clamp(2rem, 12vw, 8rem); 
+    margin-top: 5px; 
+}
+
+.hero-short-para { 
+    font-size: clamp(1.1rem, 2vw, 1.3rem); 
+    color: #ffffff; 
+    max-width: 550px; 
+    margin: 0 0 130px var(--hero-indent); 
+    margin-bottom: 20px; 
+    line-height: 1.6; 
+    font-weight: 500; 
+    letter-spacing: 0.01em; 
+    text-align: left; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 15px rgba(0, 0, 0, 0.6); 
+}
 
 .hero-cta-group { 
     display: flex; 
     gap: 20px; 
     justify-content: flex-start; 
     flex-wrap: wrap; 
-    margin-left: clamp(2rem, 12vw, 8rem);
+    margin-left: clamp(2rem, 12vw, 8rem); 
 }
 
 .btn-primary, 
-.btn-ultra-glass {
-    padding: 16px 36px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    transition: all 0.3s ease;
+.btn-ultra-glass { 
+    padding: 16px 36px; 
+    border-radius: 50px; 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    text-decoration: none; 
+    display: inline-flex; 
+    transition: all 0.3s ease; 
 }
 
-.btn-primary {
-    background: #ffffff;
-    color: #000000;
-    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+.btn-primary { 
+    background: #ffffff; 
+    color: #000000; 
+    box-shadow: 0 0 20px rgba(255,255,255,0.1); 
 }
 
 .btn-primary:hover { 
@@ -291,21 +254,20 @@ html.light .btn-primary {
     color: #ffffff; 
 }
 
-/* खऱ्या काचेचं बटन */
-.btn-ultra-glass {
-    background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+.btn-ultra-glass { 
+    background: rgba(255, 255, 255, 0.05); 
+    color: #ffffff; 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05); 
 }
 
 .btn-ultra-glass:hover { 
     background: rgba(255, 255, 255, 0.1); 
-    border-color: rgba(0, 229, 255, 0.5);
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
-    transform: translateY(-2px);
+    border-color: rgba(0, 229, 255, 0.5); 
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); 
+    transform: translateY(-2px); 
 }
 
 html.light .btn-ultra-glass { 
@@ -313,116 +275,117 @@ html.light .btn-ultra-glass {
     border: 1px solid rgba(0,0,0,0.2); 
 }
 
-/* ==========================================
-   MOBILE RESPONSIVENESS
-   ========================================== */
 @media (max-width: 768px) {
-    .premium-hero {
-        align-items: flex-start;
-        padding-top: 120px;
+    .premium-hero { 
+        align-items: flex-start; 
+        padding-top: 120px; 
     }
-
-    .hero-content-wrapper {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
-        margin: 0 !important;
-        width: 100% !important;
+    .hero-content-wrapper { 
+        padding-left: 24px !important; 
+        padding-right: 24px !important; 
+        margin: 0 !important; 
+        width: 100% !important; 
     }
-
-    .hero-main-title {
+    .hero-main-title { 
         font-size: clamp(4rem, 16vw, 5.5rem) !important; 
         line-height: 0.85 !important; 
-        margin-left: 0 !important;
+        margin-left: 0 !important; 
     }
-
-    .hollow-text {
+    .hollow-text { 
         margin-top: 10px !important; 
     }
-
-    .indented-text {
-        margin-left: 0 !important;
-        margin-top: 2px !important;
+    .indented-text { 
+        margin-left: 0 !important; 
+        margin-top: 2px !important; 
     }
-
-    .hero-short-para {
+    .hero-short-para { 
         font-size: 0.95rem !important; 
         line-height: 1.7 !important; 
         margin-top: 24px !important; 
         margin-bottom: 32px !important; 
-        max-width: 100% !important;
+        max-width: 100% !important; 
     }
-
-    .hero-cta-group {
-        margin-left: 0 !important;
-        display: flex;
+    .hero-cta-group { 
+        margin-left: 0 !important; 
+        display: flex; 
         flex-direction: column; 
         gap: 16px !important; 
-        width: 100%;
+        width: 100%; 
     }
-
     .btn-primary, 
-    .btn-ultra-glass {
+    .btn-ultra-glass { 
         width: 50%; 
-        text-align: center;
-        justify-content: center;
+        text-align: center; 
+        justify-content: center; 
     }
 }
 
 /* ==========================================
-   ABOUT SECTION
+   4. ABOUT SECTION (GAP & LAYOUT FIXED)
    ========================================== */
 #about {
+    margin-top: 100vh !important; 
     position: relative;
     height: 100vh;
+    z-index: 20 !important;
+    height: auto !important; 
+   padding-top: 80px !important;
+    padding-bottom: 60px; 
     background-color: var(--bg-color);
-    margin-top: 0; 
-    padding-top: 100px;
-    padding-bottom: 20px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.7); 
     transition: background-color 0.3s;
+}
+
+#about .section-title {
+    /* हा गॅप टायटल आणि तुझ्या फोटोवाल्या डब्यामध्ये मोकळी जागा देण्यासाठी */
+    margin-bottom: 60px !important; 
 }
 
 html.light #about { 
     background-color: #ffffff; 
     color: #000000; 
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.15); 
 }
 
-#island {
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.3s, width 0.3s, height 0.3s, border-radius 0.3s;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+#island { 
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.3s, width 0.3s, height 0.3s, border-radius 0.3s; 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2) !important; 
 }
 
-.about-card {
+.about-card { 
     max-width: 1000px; 
     width: 90%; 
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 2px solid rgb(255, 255, 255);
+    margin: 0 auto; 
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(20px); 
+    border: 2px solid rgb(255, 255, 255); 
     border-radius: 24px; 
     padding: 40px; 
     display: flex; 
     gap: 40px; 
-    align-items: center;
-    border-left: 5px solid var(--primary);
+    align-items: center; 
+    border-left: 5px solid var(--primary); 
 }
 
-html.light .about-card {
+html.light .about-card { 
     background: #fffff4; 
     border: 2px solid rgba(0, 0, 0, 0.8); 
-    color: #000000;
+    color: #000000; 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); 
-    border-left: 5px solid var(--primary);
+    border-left: 5px solid var(--primary); 
 }
 
-.about-img {
+.about-img { 
     width: 300px; 
     height: 300px; 
-    border-radius: 50%;
+    border-radius: 50%; 
     object-fit: cover; 
-    border: 6px solid rgba(255, 255, 255, 0.2);
+    border: 6px solid rgba(255, 255, 255, 0.2); 
 }
 
 html.light .about-img { 
@@ -435,7 +398,6 @@ html.light .about-img {
         text-align: center; 
         padding: 30px; 
     }
-    
     .about-img { 
         width: 180px; 
         height: 180px; 
@@ -443,15 +405,15 @@ html.light .about-img {
 }
 
 /* ==========================================
-   PROJECTS SECTION
+   5. PROJECTS SECTION
    ========================================== */
-#project-area {
+#project-area { 
     position: relative; 
     z-index: 30; 
-    background-color: var(--bg-color);
+    background-color: var(--bg-color); 
     margin-top: 0; 
     padding-bottom: 0; 
-    transition: background-color 0.3s;
+    transition: background-color 0.3s; 
 }
 
 .sticky-wrapper { 
@@ -459,69 +421,67 @@ html.light .about-img {
     position: relative; 
 }
 
-.sticky-content {
+.sticky-content { 
     height: 100vh; 
     display: flex; 
     flex-direction: column; 
-    align-items: center;
+    align-items: center; 
     justify-content: center; 
     position: sticky; 
     top: 0; 
-    overflow: hidden;
+    overflow: hidden; 
 }
 
-.project-window {
+.project-window { 
     width: 92%; 
-    max-width: 1100px; 
-    height: 75vh;
+    max-width: 1152px !important;
+    height: 75vh; 
     background: rgba(255, 255, 255, 0.05); 
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255); 
     border-radius: 24px; 
     overflow: hidden; 
     position: relative; 
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); 
 }
 
-html.light .project-window {
+html.light .project-window { 
     background: #fffff4; 
     border-color: rgb(0, 0, 0); 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); 
 }
 
-.project-track {
+.project-track { 
     padding: 40px; 
     display: grid; 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
     gap: 30px; 
-    width: 100%;
+    width: 100%; 
 }
 
-@media(max-width: 768px) {
+@media(max-width: 768px) { 
     .project-window { 
         width: 95%; 
         height: 80vh; 
         border-radius: 20px; 
-    }
-    
+    } 
     .project-track { 
         grid-template-columns: 1fr; 
         padding: 12px; 
         gap: 16px; 
-    }
-    
+    } 
     .project-card { 
         height: 360px; 
-    }
+    } 
 }
 
-.project-card {
+.project-card { 
     background: var(--card-bg); 
     height: 420px; 
-    border-radius: 18px;
+    border-radius: 18px; 
     overflow: hidden; 
     position: relative; 
-    transition: transform 0.4s ease, border-color 0.4s;
-    border: 1px solid rgb(255, 255, 255);
+    transition: transform 0.4s ease, border-color 0.4s; 
+    border: 1px solid rgb(255, 255, 255); 
 }
 
 .project-card:hover { 
@@ -582,16 +542,16 @@ html.light .text-box h3 {
     color: #000000; 
 }
 
-.icon-box {
+.icon-box { 
     width: 40px; 
     height: 40px; 
     border-radius: 50%; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     transition: all 0.3s ease; 
-    text-decoration: none;
+    text-decoration: none; 
 }
 
 .icon-box svg { 
@@ -625,43 +585,43 @@ html.light .icon-box:hover {
 }
 
 /* ==========================================
-   SKILLS SECTION
+   6. SKILLS SECTION
    ========================================== */
-#skills {
+#skills { 
     position: relative; 
     z-index: 30; 
     background-color: var(--bg-color); 
-    transition: background-color 0.3s;
+    transition: background-color 0.3s; 
 }
 
-.skill-card {
+.skill-card { 
     background: rgba(255, 255, 255, .04); 
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255); 
     backdrop-filter: blur(14px); 
     transition: all .4s ease; 
     position: relative; 
-    overflow: hidden;
+    overflow: hidden; 
 }
 
-html.light .skill-card {
+html.light .skill-card { 
     background: #fffff4; 
     border: 2px solid rgba(0, 0, 0, 0.8); 
     color: #000000; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); 
 }
 
-.skill-card::before {
+.skill-card::before { 
     content: ""; 
     position: absolute; 
     inset: 0; 
     border-radius: 24px; 
-    padding: 1px;
-    background: linear-gradient(135deg, var(--primary), #0055ff, #06b6d4);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    padding: 1px; 
+    background: linear-gradient(135deg, var(--primary), #0055ff, #06b6d4); 
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); 
     -webkit-mask-composite: xor; 
     mask-composite: exclude; 
     opacity: 0; 
-    transition: .4s;
+    transition: .4s; 
 }
 
 .skill-card:hover::before { 
@@ -686,34 +646,34 @@ html.light .invert-icon {
 }
 
 /* ==========================================
-   CONTACT SECTION
+   7. CONTACT SECTION
    ========================================== */
-#contact-section {
+#contact-section { 
     position: relative; 
     z-index: 30; 
-    background-color: var(--bg-color);
+    background-color: var(--bg-color); 
     padding: 20px 20px 40px 20px; 
-    transition: background-color 0.3s;
+    transition: background-color 0.3s; 
 }
 
-.contact-glass {
+.contact-glass { 
     backdrop-filter: blur(30px); 
-    -webkit-backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px); 
     background: rgba(255, 255, 255, 0.05); 
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255); 
 }
 
-html.light .contact-glass {
+html.light .contact-glass { 
     background: #fffff4; 
     border: 2px solid rgb(0, 0, 0); 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); 
 }
 
-.input-field {
+.input-field { 
     transition: all .25s ease; 
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05); 
     color: #ffffff; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
 .input-field:focus { 
@@ -740,46 +700,48 @@ html.light .input-field:focus {
 }
 
 /* ==========================================
-   FOOTER SECTION
+   8. FOOTER SECTION (GAP FIXED)
    ========================================== */
 #footer {
     position: relative; 
-   
-    background: var(--bg-color) ;
-    padding: 30px 0 0 0; 
+    background: var(--bg-color) !important;
+    border-top: none !important;
+    margin-top: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important; 
     overflow: hidden; 
     transition: background-color 0.3s;
 }
 
 html.light #footer { 
-    background: #ffffff ; 
+    background: #ffffff !important; 
     color: #000000; 
 }
 
-#footer::before {
+#footer::before { 
     content: ""; 
     position: absolute; 
     width: 600px; 
-    height: 600px;
-    background: radial-gradient(circle, var(--primary-glow), transparent 70%);
+    height: 600px; 
+    background: radial-gradient(circle, var(--primary-glow), transparent 70%); 
     top: -200px; 
     right: -200px; 
     opacity: 0.15; 
     z-index: 0; 
-    pointer-events: none;
+    pointer-events: none; 
 }
 
-#footer::after {
+#footer::after { 
     content: ""; 
     position: absolute; 
     width: 500px; 
-    height: 500px;
-    background: radial-gradient(circle, rgba(36, 219, 247, 0.2), transparent 70%);
+    height: 500px; 
+    background: radial-gradient(circle, rgba(36, 219, 247, 0.2), transparent 70%); 
     bottom: -200px; 
     left: -200px; 
     opacity: 0.12; 
     z-index: 0; 
-    pointer-events: none;
+    pointer-events: none; 
 }
 
 .footer-content { 
@@ -797,11 +759,11 @@ html.light .copyright-text {
     color: #000000; 
 }
 
-.footer-divider {
+.footer-divider { 
     height: 1px; 
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    background: linear-gradient(90deg, transparent, var(--primary), transparent); 
     background-size: 200% 100%; 
-    animation: slide 4s linear infinite;
+    animation: slide 4s linear infinite; 
 }
 
 @keyframes slide { 
@@ -809,17 +771,17 @@ html.light .copyright-text {
     100% { background-position: 200%; } 
 }
 
-.social-btn {
+.social-btn { 
     width: 48px; 
     height: 48px; 
     display: flex; 
     align-items: center; 
-    justify-content: center;
+    justify-content: center; 
     border-radius: 50%; 
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05); 
     border: 1px solid rgba(255, 255, 255, 0.1); 
     font-size: 1.25rem; 
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
 }
 
 .social-btn:hover { 
@@ -839,38 +801,41 @@ html.light .social-btn:hover {
 .icon-github { color: #ffffff; } 
 html.light .icon-github { color: #181717; }
 .icon-linkedin { color: #0A66C2; } 
-.icon-email { color: #EA4335; }
+.icon-email { color: #EA4335; } 
 .icon-instagram { color: #E4405F; } 
 .icon-whatsapp { color: #25D366; }
 
-.glass-footer {
+.glass-footer { 
     background: rgba(255, 255, 255, 0.04); 
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); 
     border: 2px solid rgb(255, 255, 255); 
-    border-bottom: none;
-}
-
-html.light .glass-footer {
-    background: #fffff4; 
-    border: 2px solid rgba(0, 0, 0, 0.8);
     border-bottom: none; 
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.03);
 }
 
-.visitor-box {
+html.light .glass-footer { 
+    background: #fffff4; 
+    border: 2px solid rgba(0, 0, 0, 0.8); 
+    border-bottom: none; 
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.03); 
+}
+
+/* ==========================================
+   9. GIVE HEART ANIMATION (GLITCH FIXED)
+   ========================================== */
+.visitor-box { 
     background: linear-gradient(145deg, #ffffff08, #ffffff03); 
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255); 
     padding: 20px; 
     border-radius: 16px; 
     display: inline-block; 
-    animation: pulseGlow 3s ease-in-out infinite;
+    animation: pulseGlow 3s ease-in-out infinite; 
 }
 
-html.light .visitor-box {
+html.light .visitor-box { 
     background: #ffffff; 
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8); 
     animation: none; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); 
 }
 
 html.light #footer p.text-gray-400, 
@@ -888,12 +853,63 @@ html.light #footer .text-gray-300 {
     100% { box-shadow: 0 0 0px rgba(36, 219, 247, 0.1); }
 }
 
-#scrollTopBtn {
+#giveHeartBtn { 
+    overflow: visible; 
+    min-width: 140px; 
+}
+
+html.light #giveHeartBtn:not(.is-liked) .dark-text-switch { 
+    color: #000000 !important; 
+}
+
+#giveHeartBtn.is-liked #smallHeart { 
+    color: #ff2b56 !important; 
+    font-weight: 900 !important; 
+    transform: scale(1.15); 
+}
+
+.gradient-heart { 
+    background: linear-gradient(45deg, #ff2b56 0%, #ff8da1 100%); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    display: inline-block; 
+}
+
+#floatingHeart { 
+    visibility: hidden; 
+    opacity: 0; 
+}
+
+#giveHeartBtn.is-liked.animate-pop #floatingHeart { 
+    visibility: visible; 
+    animation: floatUpAndFade 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
+}
+
+@keyframes floatUpAndFade {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    20% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+    100% { transform: translate(-50%, calc(-50% - 100px)) scale(1.8); opacity: 0; }
+}
+
+@keyframes countBounce { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.4); color: #ff2b56; } 
+    100% { transform: scale(1); } 
+}
+
+.count-animate { 
+    animation: countBounce 0.4s ease-out; 
+}
+
+/* ==========================================
+   10. SCROLL PROGRESS BUTTON & MISC
+   ========================================== */
+#scrollTopBtn { 
     background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px); 
     border: 1px solid rgba(255, 255, 255, 0.2); 
     transition: 0.3s; 
-    z-index: 50;
+    z-index: 50; 
 }
 
 #scrollTopBtn:hover { 
@@ -917,138 +933,86 @@ html.light #scrollTopBtn:hover {
     visibility: hidden; 
 }
 
-/* ==========================================
-   SCROLL PROGRESS BUTTON (Proper Border Fixed)
-   ========================================== */
-.progress-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    border: none;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999 !important;
+.progress-btn { 
+    position: fixed; 
+    bottom: 24px; 
+    right: 24px; 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(12px); 
+    border: none; 
+    color: #ffffff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 9999 !important; 
     opacity: 1 !important; 
-    pointer-events: auto !important;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    pointer-events: auto !important; 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
     line-height: 0; 
 }
 
-.progress-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-5px);
+.progress-btn:hover { 
+    background: rgba(255, 255, 255, 0.25); 
+    transform: translateY(-5px); 
 }
 
-.progress-ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotate(-90deg);
+.progress-ring { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    transform: rotate(-90deg); 
     shape-rendering: geometricPrecision; 
-    display: block;
+    display: block; 
 }
 
-.progress-ring-circle {
-    transition: stroke-dashoffset 0.1s linear;
-    stroke: #00e5ff;
-    stroke-linecap: round;
+.progress-ring-circle { 
+    transition: stroke-dashoffset 0.1s linear; 
+    stroke: #00e5ff; 
+    stroke-linecap: round; 
     stroke-dasharray: 163.4; 
-    stroke-dashoffset: 163.4;
+    stroke-dashoffset: 163.4; 
     stroke-width: 4 !important; 
 }
 
-.progress-ring-track {
+.progress-ring-track { 
     stroke-width: 4 !important; 
     shape-rendering: geometricPrecision; 
 }
 
-.arrow-icon {
-    position: absolute;
-    z-index: 10;
+.arrow-icon { 
+    position: absolute; 
+    z-index: 10; 
     width: 22px; 
-    height: 22px;
+    height: 22px; 
 }
 
-html.light .progress-btn {
-    background: #ffffff;
-    color: #000000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+html.light .progress-btn { 
+    background: #ffffff; 
+    color: #000000; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
-html.light .progress-ring-track {
+html.light .progress-ring-track { 
     stroke: rgba(0, 0, 0, 0.15); 
 }
 
-html.light .progress-ring-circle {
+html.light .progress-ring-circle { 
     stroke: #000000; 
 }
 
-
-//* ==========================================
-   FOOTER "GIVE HEART" FLOATING GRADIENT ANIMATION
+/* ==========================================
+   ABOUT SECTION TITLE GAP FIX (SPECIFICITY FIXED)
    ========================================== */
-#giveHeartBtn {
-    overflow: visible; 
-    min-width: 140px; 
+/* १. फक्त मुख्य "ABOUT ME" टायटलच्या खाली ६०px गॅप */
+#about > h2.section-title {
+    margin-bottom: 60px !important; 
 }
 
-/* लाईट मोडमध्ये टेक्स्टचा रंग काळा करण्यासाठी */
-html.light .dark-text-switch {
-    color: #000000;
-}
-
-/* 👉 फिक्स: क्लिक केल्यावर बेस हृदय 'लाल'च राहील (लाईट मोडमध्ये काळं होणार नाही) */
-#giveHeartBtn.is-liked #smallHeart {
-    color: #ff2b56 !important; /* !important मुळे काळा रंग ओव्हरराईड होईल */
-    font-weight: 900; 
-    transform: scale(1.1); 
-}
-
-/* 👉 लाल आणि पिंक ग्रेडियंट डिझाईन */
-.gradient-heart {
-    background: linear-gradient(45deg, #ff2b56 0%, #ff8da1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-}
-
-/* क्लिक केल्यावर हे ॲनिमेशन चालेल */
-#giveHeartBtn.is-liked.animate-pop #floatingHeart {
-    animation: floatUpAndFade 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-/* 👉 १००px वर जाऊन गायब होण्याचं ॲनिमेशन */
-@keyframes floatUpAndFade {
-    0% { 
-        transform: translate(-50%, -50%) scale(0.5); 
-        opacity: 0; 
-    }
-    20% { 
-        transform: translate(-50%, -50%) scale(1.5); /* थोडं मोठं होईल */
-        opacity: 1; 
-    }
-    100% { 
-        /* मूळ जागेवरून 100px वर जाईल (-100px) */
-        transform: translate(-50%, calc(-50% - 100px)) scale(1.8); 
-        opacity: 0; /* आणि गायब होईल */
-    }
-}
-
-/* नंबर बदलताना उडी मारण्याचं ॲनिमेशन */
-@keyframes countBounce {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.4); color: #ff2b56; }
-    100% { transform: scale(1); }
-}
-
-.count-animate {
-    animation: countBounce 0.4s ease-out;
+/* २. आतल्या "Sandip Sawant" च्या खाली फक्त ४px गॅप (जास्त पावरने ओव्हरराईड) */
+#about .about-card .section-title {
+    margin-bottom: 4px !important; 
 }
