@@ -1,3 +1,29 @@
+// ==========================================
+// 1. LENIS SMOOTH SCROLL SETUP (Apple-style)
+// ==========================================
+const lenis = new Lenis({
+  duration: 1.2, // स्क्रोल किती वेळ चालेल (Smoothness)
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // एकदम प्रीमियम 'Ease'
+  smoothWheel: true,
+  wheelMultiplier: 1,
+});
+
+// GSAP ScrollTrigger सोबत Lenis ला Sync करणे (हे खूप महत्त्वाचे आहे!)
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0, 0);
+
+// इथून खाली तुझे बाकीचे GSAP ॲनिमेशन्स राहतील...
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -339,4 +365,140 @@ gsap.fromTo(".project-window",
         filter: "blur(0px)", // ब्लर निघून जाईल
         ease: "power2.out"
     }
+);
+
+// ==========================================
+// GSAP CASCADE POP (SKILLS SECTION)
+// ==========================================
+
+// १. आधी Skills टायटल खालून स्मूथली वर येईल
+gsap.fromTo("#skills .section-title", 
+    { 
+        y: 50, 
+        opacity: 0 
+    },
+    {
+        scrollTrigger: {
+            trigger: "#skills",
+            start: "top 85%", // सेक्शन स्क्रीनवर दिसल्यावर सुरू होईल
+            toggleActions: "play none none reverse" // वर स्क्रोल केल्यावर परत गायब होईल, खाली आल्यावर परत येईल!
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out"
+    }
+);
+
+// २. Skill Cards ची लाट (Staggered Wave)
+gsap.fromTo(".skill-card", 
+    { 
+        y: 80,         // सुरुवातीला 80px खाली असतील
+        opacity: 0,    // गायब असतील
+        scale: 0.9     // थोडे लहान असतील
+    },
+    {
+        scrollTrigger: {
+            trigger: "#skills",
+            start: "top 75%", // टायटल आल्यावर लगेच हे सुरू होईल
+            toggleActions: "play none none reverse"
+        },
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.1, // 👉 हेच ते सिक्रेट! प्रत्येक डबा 0.1 सेकंदाच्या फरकाने येईल
+        ease: "back.out(1.5)" // डबा वर येऊन थोडासा 'Pop/Bounce' होईल
+    }
+);
+
+
+// ==========================================
+// GSAP CONTACT SECTION REVEAL (The Glass Float)
+// ==========================================
+
+// १. आधी "START A CONVERSATION" टायटल स्मूथली वर येईल
+gsap.fromTo("#contact-section .section-title", 
+    { 
+        y: 50, 
+        opacity: 0 
+    },
+    {
+        scrollTrigger: {
+            trigger: "#contact-section",
+            start: "top 85%", // सेक्शन स्क्रीनवर दिसल्यावर सुरू
+            toggleActions: "play none none reverse"
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out"
+    }
+);
+
+// ==========================================
+// GSAP ULTRA-PREMIUM CONTACT REVEAL 
+// (3D Title + Shutter Container + Staggered Inputs)
+// ==========================================
+
+// १. टायटल एकदम 3D स्टाईलने (Flip) उजेडात येईल
+gsap.fromTo("#contact-section .section-title", 
+    { 
+        y: 80, 
+        opacity: 0, 
+        rotationX: 45, // 3D इफेक्ट
+        transformPerspective: 500 
+    },
+    {
+        scrollTrigger: {
+            trigger: "#contact-section",
+            start: "top 80%", 
+            toggleActions: "play none none reverse"
+        },
+        y: 0,
+        opacity: 1,
+        rotationX: 0,
+        duration: 1,
+        ease: "power4.out"
+    }
+);
+
+// २. टाइमलाईन (Timeline) तयार करूया म्हणजे एकापाठोपाठ ॲनिमेशन होईल
+let contactTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#contact-section",
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+// ३. काचेचा डबा 'Clip-Path' वापरून पडद्यासारखा उघडेल
+contactTl.fromTo("#contact-section .contact-glass", 
+    { 
+        clipPath: "inset(100% 0 0 0)", // डबा पूर्णपणे लपवलेला (खालून)
+        y: 50 
+    },
+    { 
+        clipPath: "inset(0% 0 0 0)",   // डबा पूर्ण उघडेल
+        y: 0, 
+        duration: 1.2, 
+        ease: "expo.inOut" 
+    }
+)
+// ४. डबा उघडत आल्यावर आतले इनपुट बॉक्सेस आणि बटन एकामागे एक पॉप होतील!
+.fromTo(["#contact-section .input-field", "#contact-section button"], 
+    { 
+        y: 30, 
+        opacity: 0, 
+        scale: 0.95 
+    },
+    { 
+        y: 0, 
+        opacity: 1, 
+        scale: 1, 
+        duration: 0.6, 
+        stagger: 0.15, // प्रत्येक बॉक्स 0.15 सेकंदाच्या फरकाने येईल
+        ease: "back.out(1.2)" 
+    },
+    "-=0.6" // डबा पूर्ण उघडायच्या 0.6 सेकंद आधीच हे आतले बॉक्सेस यायला सुरुवात होईल
 );

@@ -1016,3 +1016,34 @@ html.light .progress-ring-circle {
 #about .about-card .section-title {
     margin-bottom: 4px !important; 
 }
+
+/* ==========================================
+   PREMIUM FOOTER REVEAL (Curtain Effect)
+   ========================================== */
+
+/* १. फुटर स्क्रीनच्या खाली चिकटून (लपून) राहील */
+#footer {
+    position: sticky !important;
+    bottom: 0;
+    z-index: 0;
+}
+
+/* २. Contact सेक्शन फुटरच्या 'वर' राहील आणि त्याला झाकून ठेवेल */
+#contact-section {
+    position: relative;
+    z-index: 10;
+    background-color: var(--bg-color); /* हे महत्त्वाचं आहे, नाहीतर फुटर आरपार दिसेल */
+    
+    /* फुटर उघडताना एक मस्त डार्क सावली पडेल */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8); 
+    border-bottom-left-radius: 40px; /* थोडा 'Premium' गोल आकार */
+    border-bottom-right-radius: 40px;
+}
+
+/* लाईट मोडसाठी सावलीचा रंग बदलण्यासाठी */
+html.light #contact-section {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+
+
