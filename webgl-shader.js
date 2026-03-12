@@ -1,7 +1,3 @@
-// ==========================================
-// DIRECT WEBGL SHADER (Reference Photo Copy)
-// ==========================================
-
 const canvas = document.getElementById("hero-canvas");
 const gl = canvas.getContext("webgl");
 

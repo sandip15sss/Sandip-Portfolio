@@ -4,13 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const msgIn = document.getElementById("message");
     const charCnt = document.getElementById("charCount");
     
-    if(!form) return;
+    // 👉 ही लाईन आता एकदम बुलेटप्रूफ केली आहे! (फॉर्म, बटन, मेसेज बॉक्स सगळं असेल तरच पुढे जा)
+    if(!form || !msgIn || !charCnt || !btn) return;
 
     msgIn.addEventListener("input", () => { charCnt.textContent = msgIn.value.length; });
     
     form.addEventListener("submit", async (e) => {
         e.preventDefault(); let valid = true;
-        ['name', 'email', 'message'].forEach(id => document.getElementById(id+"Error").textContent = "");
+        ['name', 'email', 'message'].forEach(id => {
+            const errEl = document.getElementById(id+"Error");
+            if(errEl) errEl.textContent = "";
+        });
+        
         if(document.getElementById("name").value.trim().length < 2) { document.getElementById("nameError").textContent = "Name too short."; valid = false; }
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("email").value.trim())) { document.getElementById("emailError").textContent = "Invalid email."; valid = false; }
         if(msgIn.value.trim().length < 5) { document.getElementById("messageError").textContent = "Message too short."; valid = false; }
@@ -24,10 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
-                    access_key: "9a99ff8f-d813-48f2-98dc-15e497fd3a1d", // 👈👈 PUT YOUR KEY HERE
+                    access_key: "9a99ff8f-d813-48f2-98dc-15e497fd3a1d", 
                     name: document.getElementById("name").value,
                     email: document.getElementById("email").value,
-                    message: document.getElementById("message").value,
+                    message: msgIn.value,
                 })
             });
 
@@ -35,30 +40,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.innerText = "Sent ✔"; 
                 btn.style.backgroundColor = "#22c55e"; 
                 btn.style.color = "#ffffff";
-                gsap.fromTo(btn, { scale: 0.9 }, { scale: 1, duration: 0.5, ease: "elastic.out(1, 0.4)" });
+                if (typeof gsap !== "undefined") gsap.fromTo(btn, { scale: 0.9 }, { scale: 1, duration: 0.5, ease: "elastic.out(1, 0.4)" });
 
                 const statusText = document.getElementById("formStatus");
-                statusText.textContent = "Thanks! I'll get back to you soon. 🎉";
-                statusText.style.color = "#22c55e"; 
-                gsap.fromTo(statusText, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 });
+                if(statusText) {
+                    statusText.textContent = "Thanks! I'll get back to you soon. 🎉";
+                    statusText.style.color = "#22c55e"; 
+                    if (typeof gsap !== "undefined") gsap.fromTo(statusText, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 });
+                }
 
                 form.reset(); 
                 charCnt.textContent = "0"; 
                 setTimeout(() => { 
                     btn.innerText = "Send Message"; btn.disabled = false; 
                     btn.style.backgroundColor = ""; btn.style.color = "";
-                    statusText.textContent = ""; statusText.style.color = "";
+                    if(statusText) { statusText.textContent = ""; statusText.style.color = ""; }
                 }, 4000);
             } else { throw new Error("Failed"); }
         } catch (error) {
             btn.innerText = "Error ❌";
-            document.getElementById("formStatus").textContent = "Failed to send. Please check your Access Key.";
-            document.getElementById("formStatus").style.color = "#ef4444"; 
+            const statusText = document.getElementById("formStatus");
+            if(statusText) {
+                statusText.textContent = "Failed to send. Please check your Access Key.";
+                statusText.style.color = "#ef4444"; 
+            }
             btn.disabled = false;
             setTimeout(() => { 
                 btn.innerText = "Send Message"; 
-                document.getElementById("formStatus").textContent = ""; 
-                document.getElementById("formStatus").style.color = ""; 
+                if(statusText) { statusText.textContent = ""; statusText.style.color = ""; }
             }, 3000);
         }
     });
