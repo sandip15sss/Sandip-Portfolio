@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="output.css">
 
   
-    <link rel="preload" href="./Assets/Fonts/SuperSlicedNormal-OG156.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="./Assets/Fonts/SuperSliced-OG156.ttf" as="font" type="font/ttf" crossorigin="anonymous">
     <link rel="preload" href="./Assets/Fonts/VampireWars.ttf" as="font" type="font/ttf" crossorigin="anonymous">
     
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://www.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
 
    
@@ -24,7 +25,7 @@
    
     <nav id="island" class="gsap-reveal fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white/90 dark:bg-[#111]/80 border border-gray-200 dark:border-white/10 overflow-hidden flex flex-col items-center w-[280px] md:w-[500px] h-[55px] rounded-full">
         <div class="w-full h-[55px] flex items-center justify-between px-3 relative z-20 shrink-0">
-            <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shadow-md">SSS</div>
+            <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-black font-bold text-sm shadow-md">SSS</div>
             
             <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-800 dark:text-gray-200">
                 <a href="#hero" class="hover:text-primary transition-colors">Home</a>
@@ -39,7 +40,7 @@
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
                     <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
                 </button>
-                <button id="menu-btn" class="md:hidden p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-800 dark:text-white relative w-8 h-8 flex items-center justify-center">
+                <button id="menu-btn" aria-label="Open Mobile Menu" class="md:hidden p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-800 dark:text-white relative w-8 h-8 flex items-center justify-center">
                     <i data-lucide="menu" id="icon-menu" class="w-5 h-5 absolute transition-opacity duration-300"></i>
                     <i data-lucide="x" id="icon-close" class="w-5 h-5 absolute opacity-0 transition-opacity duration-300"></i>
                 </button>
@@ -324,7 +325,7 @@
             <div class="glass-footer max-w-6xl mx-auto px-8 pt-16 pb-6 rounded-t-3xl  footer-item">
                 <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
                     <div>
-                        <h4 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Quick Links</h4>
+                        <h3 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Quick Links</h3>
                         <ul class="space-y-3 text-gray-400">
                             <li><a href="#about" class="hover:text-primary transition">About</a></li>
                             <li><a href="#skills" class="hover:text-primary transition">Skills</a></li>
@@ -333,7 +334,7 @@
                         </ul>
                     </div>
                     <div class="flex flex-col items-center">
-                        <h4 class="footer-heading text-center uppercase tracking-widest text-sm mb-6 font-semibold">Connect</h4>
+                        <h3 class="footer-heading text-center uppercase tracking-widest text-sm mb-6 font-semibold">Connect</h3>
                         <div class="flex gap-4 social mt-2 justify-center">
                             <a href="#" class="social-btn"  aria-label="GitHub profile"><i class="fa-brands fa-github icon-github"></i></a>
                             <a href="#" class="social-btn"  aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin icon-linkedin"></i></a>
@@ -343,7 +344,7 @@
                         </div>
                     </div>
                     <div class="md:text-right flex flex-col items-center md:items-end">
-    <h4 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Give Heart</h4>
+    <h3 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Give Heart</h3>
     
    <button id="giveHeartBtn" class="visitor-box flex flex-col items-center justify-center gap-6 cursor-pointer relative z-10 transition-all duration-300 hover:border-primary group px-8 py-5 min-w-[120px]" aria-label="Give a heart like to this portfolio">
     
