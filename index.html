@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="output.css">
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preload" href="./Assets/Fonts/SuperSlicedNormal-OG156.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="./Assets/Fonts/VampireWars.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -110,7 +115,7 @@
                         <div class="project-track">
                             <article class="project-card">
                               <div class="img-wrapper">
-                                  <img src="Assets/images/Pioneercoats.webp" alt="Surface Coating Services" loading="lazy">
+                                  <img src="Assets/images/Pioneercoats.webp" alt="Surface Coating Services" loading="lazy" width="600" height="400" decoding="async">
                               </div>
                               <div class="card-details">
                                   <div class="text-box">
@@ -124,7 +129,7 @@
                            </article>
                            <article class="project-card">
                               <div class="img-wrapper">
-                                  <img src="Assets/images/SSKinfosys.webp" alt="Electronics Store" loading="lazy">
+                                  <img src="Assets/images/SSKinfosys.webp" alt="Electronics Store" loading="lazy" width="600" height="400" decoding="async">
                               </div>
                               <div class="card-details">
                                   <div class="text-box">
@@ -138,7 +143,7 @@
                            </article>
                            <article class="project-card">
                               <div class="img-wrapper">
-                                  <img src="Assets/images/Saraswati ladoo Depot.webp" alt="Sweets Store" loading="lazy">
+                                  <img src="Assets/images/Saraswati ladoo Depot.webp" alt="Sweets Store" loading="lazy" width="600" height="400" decoding="async">
                               </div>
                               <div class="card-details">
                                   <div class="text-box">
@@ -152,7 +157,7 @@
                            </article>
                            <article class="project-card">
                               <div class="img-wrapper">
-                                  <img src="Assets/images/Reformcleaners.webp" alt="House Cleaning"  loading="lazy">
+                                  <img src="Assets/images/Reformcleaners.webp" alt="House Cleaning"  loading="lazy" width="600" height="400" decoding="async">
                               </div>
                               <div class="card-details">
                                   <div class="text-box">
@@ -166,7 +171,7 @@
                            </article>
                            <article class="project-card">
                               <div class="img-wrapper">
-                                  <img src="Assets/images/iHomezindia.webp" alt="Hotelware suppliers" loading="lazy">
+                                  <img src="Assets/images/iHomezindia.webp" alt="Hotelware suppliers" loading="lazy" width="600" height="400" decoding="async">
                               </div>
                               <div class="card-details">
                                   <div class="text-box">
@@ -180,7 +185,7 @@
                            </article>
                            <article class="project-card">
                               <div class="img-wrapper">
-                                  <img src="Assets/images/Garagedaddy.webp" alt="Vehicle servicing " loading="lazy">
+                                  <img src="Assets/images/Garagedaddy.webp" alt="Vehicle servicing " loading="lazy" width="600" height="400" decoding="async">
                               </div>
                               <div class="card-details">
                                   <div class="text-box">
@@ -194,7 +199,7 @@
                            </article>
                             <article class="project-card">
                               <div class="img-wrapper">
-                                  <img src="Assets/images/Advikasdongre.webp" alt="Advocate services" loading="lazy">
+                                  <img src="Assets/images/Advikasdongre.webp" alt="Advocate services" loading="lazy" width="600" height="400" decoding="async">
                               </div>
                               <div class="card-details">
                                   <div class="text-box">
@@ -344,7 +349,7 @@
                     <div class="md:text-right flex flex-col items-center md:items-end">
     <h4 class="footer-heading uppercase tracking-widest text-sm mb-6 font-semibold">Give Heart</h4>
     
-   <button id="giveHeartBtn" class="visitor-box flex flex-col items-center justify-center gap-6 cursor-pointer relative z-10 transition-all duration-300 hover:border-primary group px-8 py-5 min-w-[120px]">
+   <button id="giveHeartBtn" class="visitor-box flex flex-col items-center justify-center gap-6 cursor-pointer relative z-10 transition-all duration-300 hover:border-primary group px-8 py-5 min-w-[120px]" aria-label="Give a heart like to this portfolio">
     
     <div class="relative flex items-center justify-center">
         <i class="fa-regular fa-heart text-4xl text-white transition-all duration-300 group-hover:text-primary dark-text-switch" id="smallHeart"></i>
@@ -357,12 +362,12 @@
 </div>
                 </div>
                 <div class="footer-divider my-12"></div>
-                <div class="copyright-text text-center text-sm font-medium">Created with Ideas, Efforts and AI<br>© 2026 Sandip Sawant</div>
+                <div class="copyright-text text-center text-sm font-medium">Design and Develope by Sandip<br>© 2026 Sandip Sawant</div>
             </div>
         </div>
     </footer>
 
-<button id="scrollTopBtn" class="progress-btn">
+<button id="scrollTopBtn" class="progress-btn" aria-label="Scroll to top of page">
     <svg class="progress-ring" width="60" height="60" viewBox="0 0 60 60">
         <circle class="progress-ring-track" stroke="rgba(255,255,255,0.3)" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
         <circle class="progress-ring-circle" stroke="currentColor" stroke-width="4" fill="transparent" r="26" cx="30" cy="30"/>
