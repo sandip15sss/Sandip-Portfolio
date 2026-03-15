@@ -3,6 +3,7 @@
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
     console.log("🔥 1. Counter.js loaded successfully!");
 
     const firebaseConfig = {
@@ -86,4 +87,5 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.fromTo(giveHeartBtn, { scale: 1.3 }, { scale: 1, duration: 0.4, ease: "back.out(2)" });
         }
     });
+    }, 4000);
 });
