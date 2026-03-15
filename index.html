@@ -282,98 +282,90 @@
             </div>
         </section>
 
-        <section id="contact" class="max-w-6xl mx-auto px-5 py-20">
-  
-  <div class="text-center mb-12">
-    <h2 class="text-3xl md:text-5xl font-bold text-white uppercase tracking-wider">
-      Start A <span class="text-cyan-400">Conversation</span>
-    </h2>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-[#151515] p-8 md:p-12 rounded-2xl border border-gray-800 shadow-2xl">
+        <section id="contact" class="w-full relative z-[100] bg-black py-20">
+  <div class="max-w-6xl mx-auto px-5">
     
-    <div class="flex flex-col justify-center">
-      <form id="contact-form" class="space-y-6">
-        <div>
-          <label class="block text-sm font-semibold text-gray-300 mb-2" for="name">Your Name <span class="text-red-500">*</span></label>
-          <input type="text" id="name" placeholder="Enter your name" class="w-full bg-[#1a1a1a] text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold text-gray-300 mb-2" for="email">Email Address <span class="text-red-500">*</span></label>
-          <input type="email" id="email" placeholder="Enter your email" class="w-full bg-[#1a1a1a] text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold text-gray-300 mb-2" for="message">Your Message <span class="text-red-500">*</span></label>
-          <textarea id="message" rows="4" placeholder="Write your message" class="w-full bg-[#1a1a1a] text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-bold text-lg py-3 rounded-lg transition-colors shadow-[0_0_15px_rgba(34,211,238,0.4)]">
-          Send Message
-        </button>
-      </form>
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-bold text-white uppercase tracking-wider">
+        Start A <span class="text-cyan-400">Conversation</span>
+      </h2>
     </div>
 
-    <div class="flex flex-col justify-center space-y-8 pl-0 md:pl-10 md:border-l border-gray-800">
+    <div class="flex flex-col md:flex-row gap-12 bg-gray-900 p-8 md:p-12 rounded-2xl border border-gray-800 shadow-2xl">
       
-      <div>
-        <h3 class="text-2xl font-bold text-white mb-2">Let's Connect</h3>
-        <p class="text-gray-400 text-sm">Feel free to reach out to me for any project or collaboration. I'm always open to discussing new ideas!</p>
+      <div class="w-full md:w-1/2 flex flex-col justify-center">
+        <form id="contact-form" class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold text-gray-300 mb-2" for="name">Your Name <span class="text-red-500">*</span></label>
+            <input type="text" id="name" placeholder="Enter your name" class="w-full bg-black text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-300 mb-2" for="email">Email Address <span class="text-red-500">*</span></label>
+            <input type="email" id="email" placeholder="Enter your email" class="w-full bg-black text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-300 mb-2" for="message">Your Message <span class="text-red-500">*</span></label>
+            <textarea id="message" rows="4" placeholder="Write your message" class="w-full bg-black text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-bold text-lg py-3 rounded-lg transition-colors shadow-[0_0_15px_rgba(34,211,238,0.4)]">
+            Send Message
+          </button>
+        </form>
       </div>
 
-      <div class="space-y-6">
+      <div class="w-full md:w-1/2 flex flex-col justify-center space-y-8 md:pl-10 md:border-t md:border-t-0 md:border-l border-gray-800 pt-8 md:pt-0">
         
-        <a href="mailto:tuzamail@gmail.com" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
-          <div class="w-12 h-12 flex justify-center items-center rounded-full bg-[#1a1a1a] border border-gray-700 group-hover:border-cyan-400 group-hover:text-cyan-400 transition-colors text-xl text-gray-400">
-            <i class="fa-solid fa-envelope"></i>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest">Email</p>
-            <p class="text-white font-medium group-hover:text-cyan-400 transition-colors">tuzamail@gmail.com</p>
-          </div>
-        </a>
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-2">Let's Connect</h3>
+          <p class="text-gray-400 text-sm">Feel free to reach out to me for any project or collaboration. I'm always open to discussing new ideas!</p>
+        </div>
 
-        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
-          <div class="w-12 h-12 flex justify-center items-center rounded-full bg-[#1a1a1a] border border-gray-700 group-hover:border-green-500 group-hover:text-green-500 transition-colors text-xl text-gray-400">
-            <i class="fa-brands fa-whatsapp"></i>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest">WhatsApp</p>
-            <p class="text-white font-medium group-hover:text-green-500 transition-colors">+91 XXXXX XXXXX</p>
-          </div>
-        </a>
+        <div class="space-y-6">
+          
+          <a href="mailto:tuzamail@gmail.com" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-12 h-12 flex justify-center items-center rounded-full bg-black border border-gray-700 group-hover:border-cyan-400 group-hover:text-cyan-400 transition-colors text-xl text-gray-400">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest">Email</p>
+              <p class="text-white font-medium group-hover:text-cyan-400 transition-colors">tuzamail@gmail.com</p>
+            </div>
+          </a>
 
-        <a href="https://linkedin.com/in/tuza-id" target="_blank" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
-          <div class="w-12 h-12 flex justify-center items-center rounded-full bg-[#1a1a1a] border border-gray-700 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors text-xl text-gray-400">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest">LinkedIn</p>
-            <p class="text-white font-medium group-hover:text-blue-500 transition-colors">Sandip Sawant</p>
-          </div>
-        </a>
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-12 h-12 flex justify-center items-center rounded-full bg-black border border-gray-700 group-hover:border-green-500 group-hover:text-green-500 transition-colors text-xl text-gray-400">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest">WhatsApp</p>
+              <p class="text-white font-medium group-hover:text-green-500 transition-colors">+91 XXXXX XXXXX</p>
+            </div>
+          </a>
 
-        <a href="https://github.com/tuza-id" target="_blank" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
-          <div class="w-12 h-12 flex justify-center items-center rounded-full bg-[#1a1a1a] border border-gray-700 group-hover:border-white group-hover:text-white transition-colors text-xl text-gray-400">
-            <i class="fa-brands fa-github"></i>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest">GitHub</p>
-            <p class="text-white font-medium group-hover:text-white transition-colors">@tuza-github</p>
-          </div>
-        </a>
+          <a href="https://linkedin.com/in/tuza-id" target="_blank" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-12 h-12 flex justify-center items-center rounded-full bg-black border border-gray-700 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors text-xl text-gray-400">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest">LinkedIn</p>
+              <p class="text-white font-medium group-hover:text-blue-500 transition-colors">Sandip Sawant</p>
+            </div>
+          </a>
 
-        <a href="https://instagram.com/tuza-id" target="_blank" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
-          <div class="w-12 h-12 flex justify-center items-center rounded-full bg-[#1a1a1a] border border-gray-700 group-hover:border-pink-500 group-hover:text-pink-500 transition-colors text-xl text-gray-400">
-            <i class="fa-brands fa-instagram"></i>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest">Instagram</p>
-            <p class="text-white font-medium group-hover:text-pink-500 transition-colors">@tuza-insta</p>
-          </div>
-        </a>
+          <a href="https://github.com/tuza-id" target="_blank" class="group flex items-center gap-5 hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-12 h-12 flex justify-center items-center rounded-full bg-black border border-gray-700 group-hover:border-white group-hover:text-white transition-colors text-xl text-gray-400">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest">GitHub</p>
+              <p class="text-white font-medium group-hover:text-white transition-colors">@tuza-github</p>
+            </div>
+          </a>
 
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
     </main>
