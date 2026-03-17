@@ -1076,4 +1076,69 @@ html.light #contact-section {
 
 
 
+/* ==========================================
+   11. PROJECT MODAL POPUP (BULLETPROOF)
+   ========================================== */
+#project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#project-modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+#project-modal .modal-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+#project-modal .modal-content {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+#project-modal.active .modal-content {
+    transform: scale(1);
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ==========================================
+   TECH STACK BADGES (MODAL FIX)
+   ========================================== */
+#modal-tech {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important; /* दोन गोळ्यांमध्ये मस्त जागा देईल */
+}
+
+#modal-tech span {
+    display: inline-block !important;
+    padding: 6px 18px !important; /* आतून मोकळी हवा */
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50px !important; /* एकदम गोल आकार */
+    font-size: 11px !important;
+    font-family: var(--font-body) !important;
+    color: #e5e7eb !important; /* हलका पांढरा रंग */
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+}
+
 
