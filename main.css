@@ -165,7 +165,7 @@ html.light #mobile-menu a:hover {
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
-    padding: 0 6%; 
+    padding: 90px 6% 0 6%;; 
     max-width: 1400px; 
     margin: 0 auto; 
 }
@@ -1141,4 +1141,78 @@ body.modal-open {
     text-transform: uppercase !important;
 }
 
+
+/* ==========================================
+   ULTRA-WIDE & 32 INCH MONITOR FIXES
+   ========================================== */
+@media (min-width: 1536px) {
+    /* हिरो सेक्शनचा मजकूर वाढवणे */
+    .hero-main-title { 
+        font-size: clamp(6rem, 10vw, 13rem) !important; /* फॉन्टची लिमिट 13rem पर्यंत वाढवली */
+    }
+    .hero-short-para { 
+        font-size: 1.4rem !important; 
+        max-width: 700px !important; 
+    }
+    
+    /* प्रोजेक्ट कार्ड्स आणि अबाउट सेक्शनची लांबी-रुंदी वाढवणे */
+    .project-window { 
+        max-width: 1400px !important; 
+        height: 80vh !important; 
+    }
+    .about-card, .contact-glass {
+        max-width: 1300px !important;
+        padding: 60px !important;
+    }
+    .about-img {
+        width: 350px !important;
+        height: 350px !important;
+    }
+
+    /* फॉन्ट साईझ वाढवणे */
+    .section-title { font-size: 3.5rem !important; }
+    .text-box h3 { font-size: 26px !important; }
+    .text-box p { font-size: 16px !important; }
+    .see-more-btn { font-size: 15px !important; }
+}
+
+
+/* ==========================================
+   ULTRA-WIDE & 32 INCH MONITOR SCALING (PRO FIX)
+   ========================================== */
+
+/* मोठ्या लॅपटॉप्स आणि डेस्कटॉपसाठी (1440px च्या पुढे) */
+@media (min-width: 1440px) {
+    .max-w-6xl { max-width: 1300px !important; }
+    .project-window { max-width: 1350px !important; }
+}
+
+/* ३२ इंच आणि 4K मॉनिटर्ससाठी (1920px च्या पुढे) */
+@media (min-width: 1920px) {
+    /* कंटेनर्सची रुंदी वाढवणे (स्क्रीनच्या हिशोबाने) */
+    .max-w-6xl { max-width: 1600px !important; }
+    .project-window { max-width: 1750px !important; height: 70vh !important; }
+    
+    /* हिरो सेक्शनचा फॉन्ट 'Ultra Large' करणे */
+    .hero-main-title { font-size: 13rem !important; margin-bottom: 30px !important; }
+    .hero-short-para { font-size: 1.6rem !important; max-width: 800px !important; line-height: 1.8; }
+    
+    /* About सेक्शनचा फोटो आणि कार्ड मोठे करणे */
+    .about-card { padding: 80px !important; gap: 60px !important; }
+    .about-img { width: 450px !important; height: 450px !important; border-width: 10px !important; }
+    .about-card p { font-size: 1.15rem !important; }
+    
+    /* सर्व हेडिंग्स मोठे करणे */
+    .section-title { font-size: 4.5rem !important; margin-bottom: 80px !important; }
+    
+    /* Project Cards चे फॉन्ट मोठे करणे */
+    .text-box h3 { font-size: 28px !important; }
+    .text-box p { font-size: 17px !important; }
+    .see-more-btn { font-size: 16px !important; }
+    
+    /* Skills चे डबे आणि आयकॉन्स मोठे करणे */
+    .skill-card { padding: 40px !important; }
+    .skill-card img { width: 80px !important; height: 80px !important; }
+    .skill-card h3 { font-size: 1.2rem !important; }
+}
 
