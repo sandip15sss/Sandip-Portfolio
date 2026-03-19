@@ -333,8 +333,8 @@ html.light .btn-ultra-glass {
    padding-top: 80px !important;
     padding-bottom: 60px; 
     background-color: var(--bg-color);
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.7); 
     transition: background-color 0.3s;
 }
@@ -1215,4 +1215,7 @@ body.modal-open {
     .skill-card img { width: 80px !important; height: 80px !important; }
     .skill-card h3 { font-size: 1.2rem !important; }
 }
+
+
+
 
