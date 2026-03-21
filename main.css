@@ -1218,4 +1218,159 @@ body.modal-open {
 
 
 
+/* ==========================================
+   MOBILE CONTACT SECTION WIDTH FIX (SURGICAL STRIKE)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* १. बाहेरच्या डब्याची पॅडिंग काढली (जेणेकरून आतला डबा मोकळा होईल) */
+    #contact-section > .max-w-6xl {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* २. कॉन्टॅक्टच्या डब्याला बरोबर प्रोजेक्ट सेक्शन इतकंच (95%) रुंद केलं */
+    #contact-section .contact-glass {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 30px 20px !important; /* मोबाईलवर आतून जागा थोडी ऍडजस्ट केली */
+        border-radius: 20px !important; /* प्रोजेक्ट कार्ड्सच्या कोपऱ्यांशी मॅच केलं */
+    }
+}
+
+/* ==========================================
+   SKILLS OUTER CONTAINER (MATCHING PROJECT SECTION)
+   ========================================== */
+.skill-window {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05); /* काचेसारखा इफेक्ट */
+    border: 2px solid rgb(255, 255, 255); /* पांढरी बॉर्डर */
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    padding: 40px; /* आतून मोकळी जागा */
+}
+
+/* लाईट मोडसाठी डिझाईन */
+html.light .skill-window {
+    background: #fffff4;
+    border-color: rgb(0, 0, 0); /* काळी बॉर्डर */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* मोबाईलसाठी सेटिंग */
+@media(max-width: 768px) {
+    .skill-window {
+        padding: 20px; /* मोबाईलवर आतली जागा थोडी कमी केली */
+        border-radius: 20px;
+    }
+}
+
+/* ==========================================
+   CONTACT SECTION TITLE GAP FIX (MOBILE)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    #contact-section .contact-glass {
+        margin-top: 40px !important; /* टायटल आणि डब्यामध्ये ४०px चा गॅप */
+    }
+}
+
+/* ==========================================
+   ABOUT SECTION MOBILE WIDTH FIX
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* १. बाहेरच्या डब्याची पॅडिंग काढली (जेणेकरून आतला डबा मोकळा होईल) */
+    #about > div.px-6 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* २. About च्या डब्याला बरोबर प्रोजेक्ट सेक्शन इतकंच (95%) रुंद केलं */
+    .about-card {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 30px 20px !important; /* आतून मोकळी जागा मोबाईलप्रमाणे ऍडजस्ट केली */
+        border-radius: 20px !important; /* कोपरे बाकीच्या डब्यांसारखे मॅच केले */
+    }
+}
+
+/* ==========================================
+   SKILLS SECTION MOBILE WIDTH FIX
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* १. बाहेरच्या मुख्य सेक्शनची (px-6) पॅडिंग झिरो केली */
+    #skills {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* २. काचेच्या डब्याला बरोबर बाकीच्या डब्यांसारखं ९५% रुंद केलं */
+    .skill-window {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 30px 20px !important; 
+        border-radius: 20px !important;
+    }
+}
+
+/* ==========================================
+   CONTACT SECTION MOBILE WIDTH (FINAL FIX)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* १. मुख्य सेक्शनची 20px ची पॅडिंग झिरो केली (हाच खरा चोर होता) */
+    #contact-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* २. आतल्या डब्याची पॅडिंग काढली */
+    #contact-section .max-w-6xl {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* ३. आता डबा पूर्ण मोकळा झालाय, त्याला ९५% करून सेंटरला आणला */
+    .contact-glass {
+        width: 95% !important;
+        margin: 40px auto 0 auto !important; /* ४0px चा वरून गॅप आणि सेंटर अलाईनमेंट */
+        padding: 30px 20px !important;
+        border-radius: 20px !important;
+    }
+}
+
+/* ==========================================
+   FOOTER MOBILE WIDTH FIX (MATCHING 95% GRID)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* फुटरच्या काचेच्या डब्याला ९५% केलं आणि सेंटरला आणलं */
+    .glass-footer {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        /* फक्त वरचे २ कोपरे गोल केले, खालून सपाट राहील */
+        border-top-left-radius: 20px !important; 
+        border-top-right-radius: 20px !important;
+    }
+}
+
+/* ==========================================
+   FOOTER BACKGROUND COLOR MATCH (LIGHT MODE)
+   ========================================== */
+html.light .glass-footer {
+    background: #fffff4 !important; /* कॉन्टॅक्ट डब्यासारखाच क्रिम रंग */
+}
+
+/* ==========================================
+   FOOTER ICONS CLICKABLE FIX
+   ========================================== */
+
+
+/* कनेक्ट डब्याला पण वर आणलं */
+#footer .footer-content .grid {
+    position: relative !important;
+    z-index: 50 !important;
+}
+
+
+
+
 

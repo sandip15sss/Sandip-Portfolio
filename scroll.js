@@ -122,7 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.from(".footer-item", { opacity: 0, y: 80, duration: 1, stagger: 0.3, ease: "power3.out", scrollTrigger: { trigger: "#footer", start: "top 80%" } });
 
     // Smooth Scroll Links
-    const navLinks = document.querySelectorAll('nav a, #mobile-menu a, #footer a');
+   // Smooth Scroll Links (FIXED: Only target internal links starting with #)
+    const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], #footer a[href^="#"]');
+    
     navLinks.forEach(link => { 
         link.addEventListener('click', (e) => { 
             e.preventDefault(); 
@@ -133,11 +135,13 @@ document.addEventListener("DOMContentLoaded", () => {
             if(tId === '#hero') {
                 window.scrollTo({ top: 0, behavior: 'smooth' }); 
             } else { 
-                document.querySelector(tId).scrollIntoView({ behavior: 'smooth' }); 
+                const targetElement = document.querySelector(tId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' }); 
+                }
             } 
         }); 
     });
-
     // Scroll To Top Button
     const topBtn = document.getElementById("scrollTopBtn");
     window.addEventListener("scroll", () => { 
